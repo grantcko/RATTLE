@@ -28,7 +28,7 @@ MODULE_PATH_CANDIDATES = [
     ),
 ]
 GENERIC_USER_DIR_NAMES = {"shared", "public", "guest", "users"}
-REQUIRED_00_BINS = {"00-source"}
+REQUIRED_00_BINS = {"00 - hot storage", "00 - cold storage"}
 
 
 def load_resolve_script_module():
