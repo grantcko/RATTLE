@@ -91,6 +91,11 @@ def build_parser():
         action="store_true",
         help="Overwrite existing .drt if it already exists.",
     )
+    parser.add_argument(
+        "--all",
+        action="store_true",
+        help="Export all project timelines to .drt files.",
+    )
     return parser
 
 
@@ -115,6 +120,40 @@ def main():
     if not project:
         raise RuntimeError("No current Resolve project is open.")
 
+    print("=== Export Timeline ===")
+    print(f"Project      : {project.GetName()}")
+    print(f"Output dir   : {output_dir}")
+    print(f"Export all   : {'yes' if args.all else 'no'}")
+    print("=======================")
+
+    if args.all:
+        count = project.GetTimelineCount() or 0
+        exported = 0
+        failed = 0
+        for i in range(1, count + 1):
+            timeline = project.GetTimelineByIndex(i)
+            if not timeline:
+                failed += 1
+                continue
+            timeline_name = timeline.GetName() or f"timeline-{i}"
+            output_name = sanitize_filename(timeline_name)
+            output_path = output_dir / f"{output_name}.drt"
+            if output_path.exists() and not args.force:
+                failed += 1
+                print(f"Skipped (exists): {output_path.name}")
+                continue
+            ok = bool(timeline.Export(str(output_path), DRT_EXPORT_TYPE))
+            if ok and output_path.exists():
+                exported += 1
+                print(f"Exported: {timeline_name} -> {output_path.name}")
+            else:
+                failed += 1
+                print(f"Failed: {timeline_name}")
+        print(f"Summary: exported={exported}, failed={failed}")
+        if failed:
+            raise RuntimeError("One or more timeline exports failed.")
+        return
+
     timeline = project.GetCurrentTimeline()
     if not timeline:
         raise RuntimeError("No current/open timeline found.")
@@ -128,12 +167,8 @@ def main():
             "Re-run with --force to overwrite."
         )
 
-    print("=== Export Timeline ===")
-    print(f"Project      : {project.GetName()}")
     print(f"Timeline     : {timeline_name}")
     print(f"Output path  : {output_path}")
-    print("=======================")
-
     ok = bool(timeline.Export(str(output_path), DRT_EXPORT_TYPE))
     if not ok or not output_path.exists():
         raise RuntimeError("Timeline export failed.")
