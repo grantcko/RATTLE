@@ -1,0 +1,74 @@
+# OS metadata
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs and temp
+*.log
+*.tmp
+*.temp
+*.bak
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.python-version
+.venv/
+venv/
+env/
+ENV/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+.coverage
+.coverage.*
+htmlcov/
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Node (common)
+node_modules/
+
+# Project-specific excludes
+exports/
+**/ignored/
+project/ProxyMedia/
+
+# Track 00-SOURCE folder structure, ignore contents
+00-SOURCE/*
+!00-SOURCE/.gitkeep
+!00-SOURCE/audio/
+!00-SOURCE/misc/
+!00-SOURCE/postFootage/
+!00-SOURCE/postSound/
+!00-SOURCE/footage/
+00-SOURCE/audio/*
+!00-SOURCE/audio/.gitkeep
+00-SOURCE/misc/*
+!00-SOURCE/misc/.gitkeep
+00-SOURCE/postFootage/*
+!00-SOURCE/postFootage/.gitkeep
+00-SOURCE/postSound/*
+!00-SOURCE/postSound/.gitkeep
+00-SOURCE/footage/*
+!00-SOURCE/footage/.gitkeep
