@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Import a .drt timeline into timelines/imports and clean redundant import copies."""
+"""Import .drt timelines into timelines/workspace/<drt_name> and clean duplicates."""
 
 from __future__ import annotations
 
@@ -159,6 +159,10 @@ def strip_import_suffix(name: str) -> str:
     return normalized
 
 
+def timeline_bin_name_from_drt(drt_path: Path) -> str:
+    return drt_path.stem.strip() or "timeline"
+
+
 def find_folder_exact(root, name: str):
     for folder in walk_folders(root):
         if folder_name(folder) == name:
@@ -237,7 +241,7 @@ def collect_referenced_media_ids(project):
     return referenced_ids
 
 
-def run_cleanup(project, media_pool, root, workspace_bin):
+def run_cleanup(project, media_pool, root, target_bin):
     all_clips = []
     folder_of_clip = {}
     id_to_clip = {}
@@ -256,8 +260,8 @@ def run_cleanup(project, media_pool, root, workspace_bin):
     replace_ok = 0
     replace_fail = 0
 
-    timeline_items_in_workspace = [clip for clip in clips(workspace_bin) if clip_type(clip) == "timeline"]
-    if not timeline_items_in_workspace:
+    timeline_items_in_target = [clip for clip in clips(target_bin) if clip_type(clip) == "timeline"]
+    if not timeline_items_in_target:
         return {
             "candidates": 0,
             "deleted": False,
@@ -266,7 +270,7 @@ def run_cleanup(project, media_pool, root, workspace_bin):
             "replace_attempted": 0,
             "replace_ok": 0,
             "replace_fail": 0,
-            "skipped_reason": "No timeline clip found in timelines/workspace; cleanup aborted.",
+            "skipped_reason": "No timeline clip found in target workspace sub-bin; cleanup aborted.",
         }
 
     # Build duplicate index across the entire project, excluding timeline clips.
@@ -301,17 +305,17 @@ def run_cleanup(project, media_pool, root, workspace_bin):
             if match_id == candidate_id:
                 continue
             folder = folder_of_clip.get(match_id)
-            if folder is workspace_bin:
+            if folder is target_bin:
                 continue
             out.append(match_id)
         return out
 
-    # First, attempt to replace timeline item references that point to workspace duplicates.
-    workspace_timeline_names = {clip_name(c) for c in timeline_items_in_workspace}
+    # First, attempt to replace timeline item references that point to target sub-bin duplicates.
+    target_timeline_names = {clip_name(c) for c in timeline_items_in_target}
     timeline_count = project.GetTimelineCount() or 0
     for index in range(1, timeline_count + 1):
         timeline = project.GetTimelineByIndex(index)
-        if not timeline or (timeline.GetName() or "") not in workspace_timeline_names:
+        if not timeline or (timeline.GetName() or "") not in target_timeline_names:
             continue
         for track_type in ("video", "audio"):
             track_count = timeline.GetTrackCount(track_type) or 0
@@ -323,7 +327,7 @@ def run_cleanup(project, media_pool, root, workspace_bin):
                         continue
                     media_id = clip_id(media_pool_item)
                     media_folder = folder_of_clip.get(media_id)
-                    if media_folder is not workspace_bin:
+                    if media_folder is not target_bin:
                         continue
                     candidates = external_match_ids(media_pool_item)
                     if not candidates:
@@ -345,15 +349,15 @@ def run_cleanup(project, media_pool, root, workspace_bin):
     # Recompute references after replacement attempts.
     referenced_ids = collect_referenced_media_ids(project)
 
-    for clip in clips(workspace_bin):
+    for clip in clips(target_bin):
         clip_t = clip_type(clip)
         if clip_t == "timeline":
             continue
         if clip_id(clip) in referenced_ids:
             kept_referenced += 1
             continue
-        matches_outside_imports = external_match_ids(clip)
-        if not matches_outside_imports:
+        matches_outside_target = external_match_ids(clip)
+        if not matches_outside_target:
             kept_no_match += 1
             continue
         delete_candidates.append(clip)
@@ -466,9 +470,6 @@ def main():
     set_current_folder = getattr(media_pool, "SetCurrentFolder", None)
     if not callable(set_current_folder):
         raise RuntimeError("Resolve API does not support SetCurrentFolder.")
-    if not set_current_folder(workspace_bin):
-        raise RuntimeError("Could not set current folder to timelines/workspace.")
-
     print("=== Import Timeline ===")
     print(f"Project      : {project.GetName()}")
     print(f"Target bin   : {TIMELINES_BIN_NAME}/{WORKSPACE_BIN_NAME}")
@@ -481,42 +482,74 @@ def main():
         total_before = project.GetTimelineCount() or 0
         imported = 0
         failed = 0
+        cleanup_summaries = []
         for drt_path in drt_files:
+            timeline_subbin_name = timeline_bin_name_from_drt(drt_path)
+            target_bin = ensure_subfolder(media_pool, workspace_bin, timeline_subbin_name)
+            if not set_current_folder(target_bin):
+                raise RuntimeError(
+                    f"Could not set current folder to "
+                    f"{TIMELINES_BIN_NAME}/{WORKSPACE_BIN_NAME}/{timeline_subbin_name}."
+                )
             before, after = import_timeline_file(media_pool, project, drt_path)
             delta = max(0, after - before)
             if delta > 0:
                 imported += 1
-                print(f"Imported               : {drt_path}")
+                print(
+                    f"Imported               : {drt_path} -> "
+                    f"{TIMELINES_BIN_NAME}/{WORKSPACE_BIN_NAME}/{timeline_subbin_name}"
+                )
             else:
                 failed += 1
                 print(f"Import unchanged count : {drt_path}")
+            if not args.no_cleanup:
+                cleanup = run_cleanup(project, media_pool, root, target_bin)
+                cleanup_summaries.append((timeline_subbin_name, cleanup))
         total_after = project.GetTimelineCount() or 0
         print(f"Timelines before import: {total_before}")
         print(f"Timelines after import : {total_after}")
         print(f"Import summary         : success={imported}, failed={failed}")
+        if args.no_cleanup:
+            print("Cleanup                : skipped (--no-cleanup)")
+            return
+        print("\n--- Post-import cleanup ---")
+        for timeline_subbin_name, cleanup in cleanup_summaries:
+            print(f"[{timeline_subbin_name}]")
+            if cleanup["skipped_reason"]:
+                print(f"Cleanup skipped            : {cleanup['skipped_reason']}")
+            print(f"Replace attempted          : {cleanup['replace_attempted']}")
+            print(f"Replace succeeded          : {cleanup['replace_ok']}")
+            print(f"Replace failed             : {cleanup['replace_fail']}")
+            print(f"Delete candidates          : {cleanup['candidates']}")
+            print(
+                f"DeleteClips result         : "
+                f"{cleanup['deleted'] if cleanup['candidates'] else 'n/a'}"
+            )
+            print(f"Kept (still referenced)    : {cleanup['kept_referenced']}")
+            print(f"Kept (no canonical match)  : {cleanup['kept_no_match']}")
+        return
     else:
         print("Import result          : skipped (--cleanup-only)")
 
-    workspace_timeline_count = sum(1 for clip in clips(workspace_bin) if clip_type(clip) == "timeline")
-    print(f"Timeline clips in workspace: {workspace_timeline_count}")
-    if workspace_timeline_count == 0:
-        raise RuntimeError("Safety check failed: no timeline clip present in timelines/workspace after import.")
+    cleanup_summaries = []
+    for drt_path in drt_files:
+        timeline_subbin_name = timeline_bin_name_from_drt(drt_path)
+        target_bin = require_existing_subfolder(workspace_bin, timeline_subbin_name)
+        cleanup = run_cleanup(project, media_pool, root, target_bin)
+        cleanup_summaries.append((timeline_subbin_name, cleanup))
 
-    if args.no_cleanup:
-        print("Cleanup                : skipped (--no-cleanup)")
-        return
-
-    cleanup = run_cleanup(project, media_pool, root, workspace_bin)
     print("\n--- Post-import cleanup ---")
-    if cleanup["skipped_reason"]:
-        print(f"Cleanup skipped            : {cleanup['skipped_reason']}")
-    print(f"Replace attempted          : {cleanup['replace_attempted']}")
-    print(f"Replace succeeded          : {cleanup['replace_ok']}")
-    print(f"Replace failed             : {cleanup['replace_fail']}")
-    print(f"Delete candidates          : {cleanup['candidates']}")
-    print(f"DeleteClips result         : {cleanup['deleted'] if cleanup['candidates'] else 'n/a'}")
-    print(f"Kept (still referenced)    : {cleanup['kept_referenced']}")
-    print(f"Kept (no canonical match)  : {cleanup['kept_no_match']}")
+    for timeline_subbin_name, cleanup in cleanup_summaries:
+        print(f"[{timeline_subbin_name}]")
+        if cleanup["skipped_reason"]:
+            print(f"Cleanup skipped            : {cleanup['skipped_reason']}")
+        print(f"Replace attempted          : {cleanup['replace_attempted']}")
+        print(f"Replace succeeded          : {cleanup['replace_ok']}")
+        print(f"Replace failed             : {cleanup['replace_fail']}")
+        print(f"Delete candidates          : {cleanup['candidates']}")
+        print(f"DeleteClips result         : {cleanup['deleted'] if cleanup['candidates'] else 'n/a'}")
+        print(f"Kept (still referenced)    : {cleanup['kept_referenced']}")
+        print(f"Kept (no canonical match)  : {cleanup['kept_no_match']}")
 
 
 if __name__ == "__main__":
