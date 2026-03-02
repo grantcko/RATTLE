@@ -19,11 +19,12 @@ MODULE_PATH_CANDIDATES = [
         "$HOME/Library/Application Support/Blackmagic Design/DaVinci Resolve/Developer/Scripting/Modules/DaVinciResolveScript.py"
     ),
 ]
-DEFAULT_EXPORT_DIR = Path("/Volumes/TASTY/RATTLE/project")
+DEFAULT_EXPORT_DIR = Path("/Volumes/TASTY/RATTLE/project/projects")
 TIMELINE_BIN_NAME = "timelines"
 GENERIC_USER_DIR_NAMES = {"shared", "public", "guest", "users"}
 REQUIRED_00_BINS = {"00-source"}
-VERSION_TOKEN_RE = re.compile(r"(?P<prefix>.*?)(?P<sep>[_\-\s])v(?P<num>\d+)(?P<suffix>.*)$", re.IGNORECASE)
+STRICT_RATTLE_RE = re.compile(r"^RATTLE_v(?P<num>\d+)$", re.IGNORECASE)
+RATTLE_TOKEN_RE = re.compile(r"(RATTLE_v(?P<num>\d+))", re.IGNORECASE)
 
 
 def load_resolve_script_module():
@@ -344,19 +345,28 @@ def parse_args():
 
 def compute_name_options(project_name: str) -> tuple[str, str]:
     raw = project_name.strip()
-    match = VERSION_TOKEN_RE.match(raw)
-    if not match:
-        return raw, f"{raw}_v001"
+    strict = STRICT_RATTLE_RE.match(raw)
+    if strict:
+        num_s = strict.group("num") or "0"
+        width = max(3, len(num_s))
+        cur_num = int(num_s)
+        next_num = cur_num + 1
+        current = f"RATTLE_v{cur_num:0{width}d}"
+        nxt = f"RATTLE_v{next_num:0{width}d}"
+        return current, nxt
 
-    prefix = (match.group("prefix") or "").rstrip(" _-")
-    sep = match.group("sep") or "_"
-    num_s = match.group("num") or "0"
+    token = RATTLE_TOKEN_RE.search(raw)
+    if not token:
+        raise RuntimeError(
+            f"Project name must contain strict token 'RATTLE_vNNN'. Current: '{project_name}'"
+        )
+
+    num_s = token.group("num") or "0"
     width = max(3, len(num_s))
     cur_num = int(num_s)
     next_num = cur_num + 1
-    # Build canonical current/next from prefix+version token; drop trailing suffix noise like " (Copy)".
-    current = f"{prefix}{sep}v{cur_num:0{width}d}"
-    nxt = f"{prefix}{sep}v{next_num:0{width}d}"
+    current = f"RATTLE_v{cur_num:0{width}d}"
+    nxt = f"RATTLE_v{next_num:0{width}d}"
     return current, nxt
 
 
@@ -453,7 +463,9 @@ def main():
     export_fn = getattr(pm, "ExportProject", None)
     if not callable(export_fn):
         raise RuntimeError("ProjectManager.ExportProject is unavailable in this Resolve build.")
-    if not export_fn(export_project_name, str(export_path)):
+    # Export the currently open Resolve project by its actual DB name.
+    # The chosen export name only controls the DRP file name on disk.
+    if not export_fn(project_name, str(export_path)):
         raise RuntimeError(f"Failed to export DRP to {export_path}")
 
     print("\n=== Result ===")
