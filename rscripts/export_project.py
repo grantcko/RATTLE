@@ -7,6 +7,7 @@ import argparse
 import importlib
 import importlib.util
 import os
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -22,6 +23,7 @@ DEFAULT_EXPORT_DIR = Path("/Volumes/TASTY/RATTLE/project")
 TIMELINE_BIN_NAME = "timelines"
 GENERIC_USER_DIR_NAMES = {"shared", "public", "guest", "users"}
 REQUIRED_00_BINS = {"00-source"}
+VERSION_TOKEN_RE = re.compile(r"(?P<prefix>.*?)(?P<sep>[_\-\s])v(?P<num>\d+)(?P<suffix>.*)$", re.IGNORECASE)
 
 
 def load_resolve_script_module():
@@ -195,16 +197,12 @@ def print_compact_examples(values, limit=5):
         print(f"  - ... and {len(values) - limit} more")
 
 
-def run_non_link_checks(root, timeline_bin):
-    child_bins = subfolders(timeline_bin)
-    bad_items = []
+def run_non_link_checks(root, project):
+    timeline_items = []
     user_name_issues = []
     markers = user_markers()
 
-    for c in clips(timeline_bin):
-        typ = clip_type(c).lower()
-        if typ != "timeline":
-            bad_items.append((clip_name(c), clip_type(c) or "<unknown-type>"))
+    timeline_count = project.GetTimelineCount() or 0
 
     for folder in walk_folders(root):
         folder_path = folder_name(folder)
@@ -212,6 +210,8 @@ def run_non_link_checks(root, timeline_bin):
             c_name = clip_name(c)
             c_type = clip_type(c) or "<unknown-type>"
             c_path = clip_file_path(c)
+            if c_type.lower() == "timeline":
+                timeline_items.append((folder_path, c_name))
 
             issue = find_user_specific_name_issue(c_name, markers)
             if issue:
@@ -237,14 +237,14 @@ def run_non_link_checks(root, timeline_bin):
 
     print("\n--- Validation (non-link checks) ---")
     failed = False
-    if child_bins:
-        print(f"Timeline folder contains sub-bins ({len(child_bins)}). Finalize/move them before export.")
-        print_compact_examples([folder_name(child) for child in child_bins])
-        failed = True
-
-    if bad_items:
-        print(f"Timeline folder contains non-timeline items ({len(bad_items)}).")
-        print_compact_examples([f"{name} :: {typ}" for name, typ in bad_items])
+    if timeline_count > 0 or timeline_items:
+        print(
+            "Timeline content detected. Export is blocked: project must have no timelines anywhere."
+        )
+        print(f"Project timeline count: {timeline_count}")
+        if timeline_items:
+            print(f"Timeline items in bins ({len(timeline_items)}):")
+            print_compact_examples([f"[{folder}] {name}" for folder, name in timeline_items])
         failed = True
 
     if user_name_issues:
@@ -266,33 +266,8 @@ def run_non_link_checks(root, timeline_bin):
         failed = True
 
     if not failed:
-        print("Non-link checks passed.")
+        print("Non-link checks passed (no timelines found).")
     return not failed
-
-
-def find_timeline_bin(root):
-    exact = [f for f in walk_folders(root) if folder_name(f) == TIMELINE_BIN_NAME]
-    if len(exact) == 1:
-        return exact[0]
-    if len(exact) > 1:
-        raise RuntimeError(f"Multiple bins named '{TIMELINE_BIN_NAME}' found. Please disambiguate.")
-
-    candidates = []
-    for f in walk_folders(root):
-        for c in clips(f):
-            if clip_type(c).lower() == "timeline":
-                candidates.append(f)
-                break
-
-    if len(candidates) == 1:
-        return candidates[0]
-    if not candidates:
-        raise RuntimeError("Could not auto-detect a timeline bin (no bin with timeline items found).")
-    names = ", ".join(sorted({folder_name(f) for f in candidates}))
-    raise RuntimeError(
-        "Could not auto-detect a single timeline bin; multiple bins contain timelines: "
-        f"{names}"
-    )
 
 
 def repo_root() -> Path:
@@ -359,7 +334,54 @@ def parse_args():
         action="store_true",
         help="Preview operations without exporting.",
     )
+    parser.add_argument(
+        "--name",
+        default="",
+        help="Export project name override. Must be current or next version unless --force.",
+    )
     return parser.parse_args()
+
+
+def compute_name_options(project_name: str) -> tuple[str, str]:
+    raw = project_name.strip()
+    match = VERSION_TOKEN_RE.match(raw)
+    if not match:
+        return raw, f"{raw}_v001"
+
+    prefix = (match.group("prefix") or "").rstrip(" _-")
+    sep = match.group("sep") or "_"
+    num_s = match.group("num") or "0"
+    width = max(3, len(num_s))
+    cur_num = int(num_s)
+    next_num = cur_num + 1
+    # Build canonical current/next from prefix+version token; drop trailing suffix noise like " (Copy)".
+    current = f"{prefix}{sep}v{cur_num:0{width}d}"
+    nxt = f"{prefix}{sep}v{next_num:0{width}d}"
+    return current, nxt
+
+
+def choose_export_name(args, project_name: str) -> str:
+    current_name, next_name = compute_name_options(project_name)
+    allowed = {current_name, next_name}
+
+    if args.name:
+        chosen = args.name.strip()
+        if chosen in allowed or args.force:
+            return chosen
+        raise RuntimeError(
+            f"--name must be one of: '{current_name}' or '{next_name}' (or use --force)."
+        )
+
+    print("\n--- Export Name ---")
+    print(f"1) {current_name} (current)")
+    print(f"2) {next_name} (next)")
+    while True:
+        reply = input("Choose export name [1/2] (Enter=2): ").strip()
+        if reply == "" or reply == "2":
+            return next_name
+        if reply == "1":
+            return current_name
+        print("Invalid selection. Enter 1 or 2.")
 
 
 def main():
@@ -388,18 +410,19 @@ def main():
     if not root:
         raise RuntimeError("Could not access Media Pool root in current project.")
 
-    timeline_bin = find_timeline_bin(root)
-    export_path = export_dir / f"{project_name}.drp"
+    export_project_name = choose_export_name(args, project_name)
+    export_path = export_dir / f"{export_project_name}.drp"
 
     print("=== Export Project ===")
     print(f"Project      : {project_name}")
+    print(f"Export name  : {export_project_name}")
     print(f"Export dir   : {export_dir}")
     print(f"DRP path     : {export_path}")
     print(f"Force        : {'yes' if args.force else 'no'}")
     print(f"Dry run      : {'yes' if args.dry_run else 'no'}")
     print("======================")
 
-    non_link_ok = run_non_link_checks(root, timeline_bin)
+    non_link_ok = run_non_link_checks(root, project)
     if not non_link_ok and not args.force:
         raise RuntimeError("Non-link export checks failed. Re-run with --force to continue anyway.")
 
@@ -430,7 +453,7 @@ def main():
     export_fn = getattr(pm, "ExportProject", None)
     if not callable(export_fn):
         raise RuntimeError("ProjectManager.ExportProject is unavailable in this Resolve build.")
-    if not export_fn(project_name, str(export_path)):
+    if not export_fn(export_project_name, str(export_path)):
         raise RuntimeError(f"Failed to export DRP to {export_path}")
 
     print("\n=== Result ===")

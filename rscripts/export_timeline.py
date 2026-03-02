@@ -19,6 +19,9 @@ MODULE_PATH_CANDIDATES = [
     ),
 ]
 DRT_EXPORT_TYPE = 1
+VERSION_TOKEN_RE = re.compile(r"(?P<prefix>.*?)(?P<sep>[_\-\s])v(?P<num>\d+)(?P<suffix>.*)$", re.IGNORECASE)
+LEADING_NUM_RE = re.compile(r"^(?P<num>\d+)(?:[-_\s].*)?$")
+NUM_SUFFIX_RE = re.compile(r"^(?P<num>\d+)(?P<suffix>[-_\s].+)?$")
 
 
 def load_resolve_script_module():
@@ -72,6 +75,88 @@ def default_timelines_dir() -> Path:
     return repo_root / "project" / "timelines"
 
 
+def compute_name_options(name: str) -> tuple[str, str]:
+    raw = sanitize_filename(name)
+    leading = LEADING_NUM_RE.match(raw)
+    if leading:
+        cur_num = int(leading.group("num"))
+        width = len(leading.group("num"))
+        return raw, f"{cur_num + 1:0{width}d}"
+
+    match = VERSION_TOKEN_RE.match(raw)
+    if not match:
+        return raw, f"{raw}_v001"
+
+    prefix = (match.group("prefix") or "").rstrip(" _-")
+    sep = match.group("sep") or "_"
+    num_s = match.group("num") or "0"
+    width = max(3, len(num_s))
+    cur_num = int(num_s)
+    next_num = cur_num + 1
+    current = f"{prefix}{sep}v{cur_num:0{width}d}"
+    nxt = f"{prefix}{sep}v{next_num:0{width}d}"
+    return sanitize_filename(current), sanitize_filename(nxt)
+
+
+def compute_name_options_from_existing(
+    timeline_name: str, output_dir: Path
+) -> tuple[str, str]:
+    raw = sanitize_filename(timeline_name)
+    m = NUM_SUFFIX_RE.match(raw)
+    if not m:
+        return compute_name_options(raw)
+
+    seed_num = m.group("num")
+    suffix = m.group("suffix") or ""
+    width = len(seed_num)
+    major_prefix = seed_num[:2] if len(seed_num) >= 2 else seed_num
+
+    candidates = []
+    for p in output_dir.glob("*.drt"):
+        stem = sanitize_filename(p.stem)
+        mm = NUM_SUFFIX_RE.match(stem)
+        if not mm:
+            continue
+        num_s = mm.group("num")
+        suf = mm.group("suffix") or ""
+        if suf != suffix:
+            continue
+        if major_prefix and not num_s.startswith(major_prefix):
+            continue
+        candidates.append((int(num_s), len(num_s), stem))
+
+    if not candidates:
+        return raw, f"{int(seed_num) + 1:0{width}d}{suffix}"
+
+    latest_num, latest_width, latest_name = sorted(candidates, key=lambda x: x[0])[-1]
+    next_name = f"{latest_num + 1:0{latest_width}d}{suffix}"
+    return latest_name, next_name
+
+
+def choose_output_name(args, timeline_name: str, output_dir: Path) -> str:
+    current_name, next_name = compute_name_options_from_existing(timeline_name, output_dir)
+    allowed = {current_name, next_name}
+
+    if args.output_name:
+        chosen = sanitize_filename(args.output_name)
+        if chosen in allowed or args.force:
+            return chosen
+        raise RuntimeError(
+            f"--output-name must be one of: '{current_name}' or '{next_name}' (or use --force)."
+        )
+
+    print("\n--- Export Name ---")
+    print(f"1) {current_name} (current)")
+    print(f"2) {next_name} (next)")
+    while True:
+        reply = input("Choose export name [1/2] (Enter=2): ").strip()
+        if reply == "" or reply == "2":
+            return next_name
+        if reply == "1":
+            return current_name
+        print("Invalid selection. Enter 1 or 2.")
+
+
 def build_parser():
     parser = argparse.ArgumentParser(
         description="Export currently open timeline to project/timelines as a .drt file."
@@ -84,7 +169,7 @@ def build_parser():
     parser.add_argument(
         "--output-name",
         default="",
-        help="Optional file name (without extension). Default uses current timeline name.",
+        help="Export file name override. Must be current or next version unless --force.",
     )
     parser.add_argument(
         "--force",
@@ -159,7 +244,7 @@ def main():
         raise RuntimeError("No current/open timeline found.")
 
     timeline_name = timeline.GetName() or "timeline"
-    output_name = sanitize_filename(args.output_name or timeline_name)
+    output_name = choose_output_name(args, timeline_name, output_dir)
     output_path = output_dir / f"{output_name}.drt"
     if output_path.exists() and not args.force:
         raise RuntimeError(

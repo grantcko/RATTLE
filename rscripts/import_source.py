@@ -154,6 +154,18 @@ def norm_path_str(p: str) -> str:
         return str(pp)
 
 
+def file_identity(path_str: str):
+    """Return stable file identity for symlink-aware matching.
+
+    Uses followed symlink target identity (device, inode) when available.
+    """
+    try:
+        st = Path(path_str).expanduser().stat()
+    except Exception:
+        return None
+    return (st.st_dev, st.st_ino)
+
+
 def collect_existing_paths_under_bin(target_bin):
     existing = set()
     for f in walk_folders(target_bin):
@@ -248,6 +260,7 @@ def validate_source_of_truth(
 ):
     """Ensure bin items map to disk files from source folder. Return violations."""
     source_set = {norm_path_str(str(p)) for p in source_files}
+    source_identity_set = {ident for ident in (file_identity(str(p)) for p in source_files) if ident}
     rows = collect_bin_item_rows(import_scope_bin)
     expected_rel_dirs = collect_source_relative_dirs(source_folder, recursive)
     folder_rows = collect_bin_folder_rows_under_source_root(
@@ -258,7 +271,11 @@ def validate_source_of_truth(
     ]
 
     no_path = [r for r in rows if not r["path"]]
-    extra = [r for r in rows if r["path"] and not path_matches_source_set(r["path"], source_set)]
+    extra = [
+        r
+        for r in rows
+        if r["path"] and not path_matches_source_set(r["path"], source_set, source_identity_set)
+    ]
     return {
         "ok": not (no_path or extra or stale_folders),
         "no_path": no_path,
@@ -267,7 +284,7 @@ def validate_source_of_truth(
     }
 
 
-def path_matches_source_set(path: str, source_set: set[str]) -> bool:
+def path_matches_source_set(path: str, source_set: set[str], source_identity_set: set[tuple[int, int]]) -> bool:
     """Return True if a Resolve path is represented by source_set.
 
     Handles direct matches and Resolve image-sequence notation such as:
@@ -277,6 +294,14 @@ def path_matches_source_set(path: str, source_set: set[str]) -> bool:
       /path/to/name2.png
     """
     if path in source_set:
+        return True
+
+    norm = norm_path_str(path)
+    if norm in source_set:
+        return True
+
+    ident = file_identity(path)
+    if ident and ident in source_identity_set:
         return True
 
     m = re.match(r"^(.*)\[(\d+)-(\d+)\](.*)$", path)
@@ -300,7 +325,7 @@ def path_matches_source_set(path: str, source_set: set[str]) -> bool:
     width = max(len(start_s), len(end_s))
     for n in range(start, end + 1):
         candidate = f"{prefix}{n:0{width}d}{suffix}"
-        if norm_path_str(candidate) not in source_set:
+        if not path_matches_source_set(candidate, source_set, source_identity_set):
             return False
     return True
 
@@ -461,9 +486,17 @@ def should_ignore(path: Path, source_folder: Path, patterns: list[str]) -> bool:
 
 def collect_candidate_files(source_folder: Path, recursive: bool):
     if recursive:
-        files = [p for p in source_folder.rglob("*") if p.is_file()]
+        # Follow symlinked directories so storage aliases/mount indirections are included.
+        files = []
+        for root, _, names in os.walk(source_folder, followlinks=True):
+            root_path = Path(root)
+            for name in names:
+                p = root_path / name
+                # Include symlinked file entries even when the link target is currently offline.
+                if p.is_file() or p.is_symlink():
+                    files.append(p)
     else:
-        files = [p for p in source_folder.iterdir() if p.is_file()]
+        files = [p for p in source_folder.iterdir() if p.is_file() or p.is_symlink()]
     return sorted(files)
 
 
