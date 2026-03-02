@@ -8,23 +8,39 @@ Postproduction 🖥️ | [Latest Nightly Export](https://archive.org/details/140
 
 ## Build
 
-1. Clone the repository.
+1. Clone the repository:
+  ```
+   git clone https://github.com/[your-username]/RATTLE.git
+  ```
 2. Create and activate a virtual environment:
-   - `python3 -m venv .venv`
-   - `source .venv/bin/activate`
+  ```
+   python3 -m venv .venv
+   source .venv/bin/activate
+  ```
 3. Install dependencies:
-   - `pip install -r requirements.txt`
+  ```
+   pip install -r requirements.txt
+  ```
 4. Verify external tools:
-   - `ia --version`
-   - DaVinci Resolve installed with scripting enabled (`DaVinciResolveScript.py` available)
+  ```
+   ia --version
+  ```
+   DaVinci Resolve installed with scripting enabled:
 5. Import project:
-   - `python3 rscripts/import_project.py`
+  ```
+   python3 rscripts/import_project.py
+  ```
+  Or manually by just opening it.
 6. Download large files (if needed):
-   - `python3 rscripts/download_external_files.py --list-url "https://archive.org/details/@grantcko/lists/1/rattle!" --destdir "path/to/storage"`
+  ```
+   python3 rscripts/download_external_files.py --list-url "https://archive.org/details/@grantcko/lists/1/rattle!" --destdir "path/to/storage"
+  ```
 7. Relink everything inside Resolve.
 8. Import timeline:
-   - `python3 rscripts/import_timeline.py path/to/drt`
-   - or manually: `File > Import > Import Timeline`.
+  ```
+   python3 rscripts/import_timeline.py path/to/drt
+  ```
+   Or manually: `File>Import>Timeline`
 
 ## Structure
 
@@ -42,6 +58,17 @@ Stored at `project/projects/` - exported project files. New versions are created
 Stored at `project/timelines/` - exported timeline files. Versioned `MMmm-[category]` where `MM` is the major version number and `mm` is the minor version number (e.g. `1406-sound`).
 
 - When importing `.drt` files, Resolve populates the media pool with extra imported clips (duplicates) specific to that imported timeline. Use the timeline import script in `rscripts/` to clean this up.
+
+## Requirements
+
+You only need to meet these requirements if you want to use any of the automation scripts provided in `rscripts/`. (If you simply want to browse or manually import timelines or projects, these are not strictly necessary.):
+
+- Python 3.8 or newer
+- All Python dependencies listed in `requirements.txt`
+- [DaVinci Resolve Studio](https://www.blackmagicdesign.com/products/davinciresolve/) (**not just DaVinci Resolve Free**) installed and scripting enabled  
+  - Resolve Studio is required for scripting access and project import/export automations.
+
+Other external tools such as `ia` (for interacting with Archive.org) may also be required for some workflows.
 
 ## Contributing
 
@@ -65,10 +92,11 @@ What is generally not allowed (introduces linking problems):
 Do not commit large media files directly to git.
 
 1. Keep large media outside the repository
-2. In each PR, include:
-   - what large files are required
-   - where to download them
-   - any relink notes needed in Resolve
+2. Upload them to internet archive
+3. In each PR, include:
+  - what large files are required
+  - where to download them
+  - any relink notes needed in Resolve
 
 Recommended storage for shareable large files: Archive.org.
 
@@ -93,3 +121,4 @@ Recommended storage for shareable large files: Archive.org.
 - on balcony
 - wife comes out and pours tea (it is the lady in the dream)
 - Man: "I want a divorce"
+
