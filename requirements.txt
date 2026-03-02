@@ -1,0 +1,3 @@
+# Python dependencies
+# Provides the `ia` CLI used by rscripts/download_external_files.py
+internetarchive>=5.8.0
