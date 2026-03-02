@@ -1,16 +1,10 @@
-
-
 # RATTLE!
 
-An open source video about a man at a picnic who does not quite know where he is, or the lady sitting across from him.
+An open source video about a man at a picnic with a woman he doesn't know in a place he can't recall.
 
 ## Status
 
-Post production - sound 
-
-## Latest Export
-
-[1400-sound](https://archive.org/details/1400-edit-1) 
+Postproduction 🖥️    |    [Latest Nightly Export](https://archive.org/details/1400-edit-1)
 
 ## Build
 
