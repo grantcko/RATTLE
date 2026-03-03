@@ -84,11 +84,11 @@ Generally not allowed (causes linking/consistency problems):
 - Changing `00-SOURCE` folder structure
 - Removing required source files without explicit coordination
 
-## Adding new source files to the source folder
+#### Adding new source files to the source folder
 
 This is fine as long as they're small and you explain what was added and why. Don't change the structure of the source folder, is it will cause unnecessary linking issues for everyone else. For larger files follow the Large Files Workflow.
 
-## Large Files Workflow
+#### Large Files Workflow
 
 Do not commit large media directly to git.
 
