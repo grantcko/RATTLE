@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Import .drt timelines into timelines/workspace/<drt_name> and clean duplicates."""
+"""Import .drt timelines into the currently selected Media Pool bin and clean duplicates."""
 
 from __future__ import annotations
 
@@ -17,8 +17,6 @@ MODULE_PATH_CANDIDATES = [
         "$HOME/Library/Application Support/Blackmagic Design/DaVinci Resolve/Developer/Scripting/Modules/DaVinciResolveScript.py"
     ),
 ]
-TIMELINES_BIN_NAME = "timelines"
-WORKSPACE_BIN_NAME = "workspace"
 
 
 def load_resolve_script_module():
@@ -380,7 +378,10 @@ def run_cleanup(project, media_pool, root, target_bin):
 
 def build_parser():
     parser = argparse.ArgumentParser(
-        description="Import a .drt timeline into timelines/workspace and clean redundant duplicate clips."
+        description=(
+            "Import a .drt timeline into the currently selected Media Pool bin "
+            "and clean redundant duplicate clips."
+        )
     )
     parser.add_argument(
         "input_paths",
@@ -390,12 +391,12 @@ def build_parser():
     parser.add_argument(
         "--no-cleanup",
         action="store_true",
-        help="Skip post-import duplicate cleanup in timelines/workspace.",
+        help="Skip post-import duplicate cleanup in the target bin.",
     )
     parser.add_argument(
         "--cleanup-only",
         action="store_true",
-        help="Skip import and run duplicate cleanup in timelines/workspace only.",
+        help="Skip import and run duplicate cleanup in the target bin only.",
     )
     return parser
 
@@ -459,20 +460,22 @@ def main():
     if not root:
         raise RuntimeError("Could not get Media Pool root folder.")
 
-    timelines_bin = find_folder_exact(root, TIMELINES_BIN_NAME)
-    if timelines_bin is None:
+    get_current_folder = getattr(media_pool, "GetCurrentFolder", None)
+    if not callable(get_current_folder):
+        raise RuntimeError("Resolve API does not support GetCurrentFolder; cannot determine target bin.")
+    workspace_bin = get_current_folder()
+    if not workspace_bin:
         raise RuntimeError(
-            "Required bin missing: 'timelines'. "
-            "Make sure that you have the latest project (.drp)."
+            "Could not determine current Media Pool folder. "
+            "Select a bin in the Media Pool and try again."
         )
-    workspace_bin = require_existing_subfolder(timelines_bin, WORKSPACE_BIN_NAME)
 
     set_current_folder = getattr(media_pool, "SetCurrentFolder", None)
     if not callable(set_current_folder):
         raise RuntimeError("Resolve API does not support SetCurrentFolder.")
     print("=== Import Timeline ===")
     print(f"Project      : {project.GetName()}")
-    print(f"Target bin   : {TIMELINES_BIN_NAME}/{WORKSPACE_BIN_NAME}")
+    print(f"Target bin   : {folder_name(workspace_bin)} (current Media Pool folder)")
     print(f"DRT files    : {len(drt_files)}")
     for file_path in drt_files:
         print(f"  - {file_path}")
@@ -488,8 +491,8 @@ def main():
             target_bin = ensure_subfolder(media_pool, workspace_bin, timeline_subbin_name)
             if not set_current_folder(target_bin):
                 raise RuntimeError(
-                    f"Could not set current folder to "
-                    f"{TIMELINES_BIN_NAME}/{WORKSPACE_BIN_NAME}/{timeline_subbin_name}."
+                    "Could not set current folder to "
+                    f"{folder_name(workspace_bin)}/{timeline_subbin_name}."
                 )
             before, after = import_timeline_file(media_pool, project, drt_path)
             delta = max(0, after - before)
@@ -497,7 +500,7 @@ def main():
                 imported += 1
                 print(
                     f"Imported               : {drt_path} -> "
-                    f"{TIMELINES_BIN_NAME}/{WORKSPACE_BIN_NAME}/{timeline_subbin_name}"
+                    f"{folder_name(workspace_bin)}/{timeline_subbin_name}"
                 )
             else:
                 failed += 1
