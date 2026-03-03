@@ -25,8 +25,6 @@ python3 rscripts/import_project.py
 python3 rscripts/download_external_files.py --list-url "https://archive.org/details/@grantcko/lists/1/rattle!" --destdir "path/to/storage"
 python3 rscripts/import_timeline.py path/to/drt
 ```
-# End of Selection
-```
 
 ## Requirements
 
