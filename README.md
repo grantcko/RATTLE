@@ -8,17 +8,25 @@ Postproduction 🖥️ | [Latest Nightly Export](https://archive.org/details/140
 
 ## Quick Start
 
+1. Setup
+
 ```bash
 git clone https://github.com/grantcko/RATTLE.git
 cd RATTLE
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-python3 rscripts/import_project.py
-python3 rscripts/download_external_files.py --list-url "https://archive.org/details/@grantcko/lists/1/rattle!" --destdir "path/to/storage"
-```
 
-- Import a timeline with `python3 rscripts/import_timeline.py path/to/drt`
+# Open latest project version (RATTLE_vNNN) automatically
+open -a "DaVinci Resolve"
+python3 rscripts/import_project.py
+
+# Run scripts
+python3 rscripts/download_external_files.py --list-url "https://archive.org/details/@grantcko/lists/1/rattle!" --destdir "path/to/storage"
+python3 rscripts/import_timeline.py path/to/drt
+```
+# End of Selection
+```
 
 ## Requirements
 
@@ -102,4 +110,3 @@ Recommended host for shareable large files: Archive.org.
 - on balcony
 - wife comes out and pours tea (it is the lady in the dream)
 - Man: "I want a divorce"
-
