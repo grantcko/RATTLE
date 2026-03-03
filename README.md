@@ -1,6 +1,6 @@
 # RATTLE!
 
-An open source short film project built around collaborative DaVinci Resolve timeline iterations.
+An open source narrative video built around collaborative DaVinci Resolve project files.
 
 ## Status
 
