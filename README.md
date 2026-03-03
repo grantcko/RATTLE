@@ -22,8 +22,19 @@ open -a "DaVinci Resolve"
 python3 rscripts/import_project.py
 
 # Run scripts
-python3 rscripts/download_external_files.py --list-url "https://archive.org/details/@grantcko/lists/1/rattle!" --destdir "path/to/storage"
 python3 rscripts/import_timeline.py path/to/drt
+```
+
+2. Download and connect large files
+
+Footage 
+```
+python3 rscripts/download_external_files.py --list-url "https://archive.org/details/@grantcko/lists/1/rattle-full" --destdir "path/to/storage"
+```
+
+Proxy Footage
+```
+python3 rscripts/download_external_files.py --list-url "https://archive.org/details/@grantcko/lists/1/rattle-proxy" --destdir "path/to/proxystorage"
 ```
 
 ## Requirements
@@ -35,7 +46,9 @@ python3 rscripts/import_timeline.py path/to/drt
 
 ## Project Structure
 
-DaVinci Resolve project files are databases and are not ideal for direct multi-user git collaboration, so this repo uses exported and versioned artifacts under `project/`.
+- The Resolve project has a 00-SOURCE bin that is a direct mirrored import of the "source" folder 00-source. `Folder` = actual folder on disk. `Bin` = Resolve's version of a "folder" in the media pool. 
+- Project only bins: for timelines, compound/fusion clips, capture audio. *Mostly* for resolve "items" - not actual files.
+- DaVinci Resolve project files are databases and are not ideal for direct multi-user git collaboration, so this repo uses exported and versioned artifacts  under `project/`. 
 
 ### Projects (.drp)
 
@@ -45,10 +58,6 @@ Stored at `project/projects/`.
 - Contains source/media structure and project settings
 - Intentionally no timelines
 - Versioned as `vNNN`
-
-Source mapping:
-
-- Resolve bin `00-SOURCE` is intended to mirror repo folder `00-SOURCE`.
 
 ### Timelines (.drt)
 
@@ -75,11 +84,15 @@ Generally not allowed (causes linking/consistency problems):
 - Changing `00-SOURCE` folder structure
 - Removing required source files without explicit coordination
 
+## Adding new source files to the source folder
+
+This is fine as long as you explain what was added and why. Don't change the structure of the source folder, is it will cause unnecessary linking issues for everyone else.
+
 ## Large Files Workflow
 
 Do not commit large media directly to git.
 
-- Keep large media outside the repository
+- Keep large media outside the repository 
 - In PRs, include:
   - required large files
   - download location(s)
