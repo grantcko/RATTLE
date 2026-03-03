@@ -18,7 +18,7 @@ import subprocess
 import tempfile
 from pathlib import Path
 from urllib.parse import urlparse
-from urllib.request import urlopen
+from urllib.request import Request, urlopen
 
 
 def require_ia() -> str:
@@ -69,6 +69,11 @@ def list_identifiers(list_name: str) -> list[str]:
 
 def list_identifiers_from_url(list_url: str) -> list[str]:
     parsed = urlparse(list_url)
+    if parsed.scheme != "https":
+        raise RuntimeError("List URL must use https.")
+    if parsed.netloc not in {"archive.org", "www.archive.org"}:
+        raise RuntimeError("List URL must be on archive.org.")
+
     parts = [p for p in parsed.path.split("/") if p]
     # Expected: /details/@user/lists/<id>/<slug>
     if len(parts) < 4 or parts[0] != "details" or parts[2] != "lists":
@@ -76,6 +81,17 @@ def list_identifiers_from_url(list_url: str) -> list[str]:
             "List URL format not recognized. Expected "
             "https://archive.org/details/@user/lists/<id>/<slug>"
         )
+
+    # Sanity check: ensure the provided URL itself is reachable.
+    req = Request(list_url, headers={"User-Agent": "RATTLE/1.0"})
+    try:
+        with urlopen(req, timeout=30) as resp:
+            status = getattr(resp, "status", 200)
+            if status >= 400:
+                raise RuntimeError(f"List URL is not reachable (HTTP {status}): {list_url}")
+    except Exception as exc:
+        raise RuntimeError(f"List URL sanity check failed: {list_url} ({exc})") from exc
+
     user = parts[1]
     list_id = parts[3]
     api_url = f"https://archive.org/services/users/{user}/lists/{list_id}"
