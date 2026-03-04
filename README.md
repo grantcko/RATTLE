@@ -1,6 +1,6 @@
 # RATTLE!
 
-An open source narrative video built around collaborative DaVinci Resolve project files.
+An open source narrative horror video about man finds himself at peace, having a picnic with a woman he doesn't know, at a place he can't recall. The bliss is short lived. 
 
 ## Status
 
