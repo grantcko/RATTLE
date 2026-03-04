@@ -2,6 +2,8 @@
 
 An open source narrative horror video about man finds himself at peace, having a picnic with a woman he doesn't know, at a place he can't recall. The bliss is short lived. 
 
+<img width="2031" height="1143" alt="Screenshot 2026-03-05 at 1 23 45 AM" src="https://github.com/user-attachments/assets/6e45bef1-9a1b-4284-9f13-0bf8ae8a7d01" />
+
 ## Status
 
 Postproduction 🖥️ | [Latest Nightly Export](https://archive.org/details/1400-edit-1)
