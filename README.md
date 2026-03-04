@@ -27,15 +27,23 @@ python3 rscripts/import_timeline.py path/to/drt
 
 2. Download and connect large files
 
-Footage 
+Full Sized Footage
+```bash
+ia download rattle-footage --destdir "path/to/footagestorage"
 ```
-python3 rscripts/download_external_files.py --list-url "https://archive.org/details/@grantcko/lists/1/rattle-full" --destdir "path/to/storage"
-```
+Or download manually from: [https://archive.org/details/rattle-footage](https://archive.org/details/rattle-footage)
 
 Proxy Footage
+```bash
+ia download rattle-proxies --destdir "path/to/proxystorage"
 ```
-python3 rscripts/download_external_files.py --list-url "https://archive.org/details/@grantcko/lists/1/rattle-proxy" --destdir "path/to/proxystorage"
+Or download manually from: [https://archive.org/details/rattle-proxies](https://archive.org/details/rattle-proxies)
+
+Audio
+```bash
+ia download rattle-audio --destdir "path/to/audiostorage"
 ```
+Or download manually from: [https://archive.org/details/rattle-audio](https://archive.org/details/rattle-audio)
 
 ## Requirements
 
