@@ -21,9 +21,10 @@ pip install -r requirements.txt
 open -a "DaVinci Resolve"
 python3 rscripts/import_project.py
 
-# Run scripts
-python3 rscripts/import_timeline.py path/to/drt
+# import timeline
+python3 rscripts/import_timeline.py path/to/drt # choose the timeline you want
 ```
+Of course, these can be opened manually, too. Everything you need is in the `project/` folder.
 
 2. Download and connect large files
 
