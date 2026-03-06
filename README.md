@@ -48,6 +48,12 @@ ia download rattle-audio --destdir "path/to/audiostorage"
 ```
 Or download manually from: [https://archive.org/details/rattle-audio](https://archive.org/details/rattle-audio)
 
+Miscellaneous
+```bash
+ia download rattle-00-source-misc --destdir "path/to/miscstorage"
+```
+Or download manually from: [https://archive.org/details/rattle-00-source-misc](https://archive.org/details/rattle-00-source-misc)
+
 ## Requirements
 
 - Python 3.10+
