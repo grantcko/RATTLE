@@ -1,0 +1,4 @@
+# Local render outputs stay off git.
+*
+!.gitignore
+!.gitkeep
