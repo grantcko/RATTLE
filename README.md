@@ -36,6 +36,8 @@ ia download rattle-footage --destdir "path/to/footagestorage"
 ```
 Or download manually from: [https://archive.org/details/rattle-footage](https://archive.org/details/rattle-footage)
 
+Scene 1 film share: [footage/film/film-share-sc1.mov](https://archive.org/download/rattle-footage/footage/film/film-share-sc1.mov)
+
 Proxy Footage
 ```bash
 ia download rattle-proxies --destdir "path/to/proxystorage"
