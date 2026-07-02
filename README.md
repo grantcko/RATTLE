@@ -124,4 +124,12 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Credits
 
-Producers: Grant Hall and David Narbecki
+| Role | Credit |
+| --- | --- |
+| Director/Producer | Grant Hall |
+| Cinematographer/Producer | David Narbecki |
+| The "Woman" | Jalani Blankenship |
+| The "Man" | Reza Emamiyeh |
+| Gaffer | Ben Gonzalez |
+| Makeup Artist | Kaye Narita |
+| Assistant Camera/BTS | Andrew Alter |
