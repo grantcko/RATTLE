@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "updated": "2026-07-02",
+  "purpose": "Repo-safe manifest for external RATTLE media required by contributors.",
+  "large_media_policy": "Do not commit large media, licensed stock, licensed music, render movies, proxies, or temporary Resolve output directly to Git.",
+  "download_groups": [
+    {
+      "name": "Full-size footage",
+      "archive_identifier": "rattle-footage",
+      "archive_url": "https://archive.org/details/rattle-footage",
+      "local_target": "00-SOURCE/footage",
+      "tracked_in_git": false
+    },
+    {
+      "name": "Proxy footage",
+      "archive_identifier": "rattle-proxies",
+      "archive_url": "https://archive.org/details/rattle-proxies",
+      "local_target": "external proxy storage or Resolve proxy media",
+      "tracked_in_git": false
+    },
+    {
+      "name": "Production audio",
+      "archive_identifier": "rattle-audio",
+      "archive_url": "https://archive.org/details/rattle-audio",
+      "local_target": "00-SOURCE/audio and selected project audio capture/render paths",
+      "tracked_in_git": false
+    },
+    {
+      "name": "Miscellaneous source assets",
+      "archive_identifier": "rattle-00-source-misc",
+      "archive_url": "https://archive.org/details/rattle-00-source-misc",
+      "local_target": "00-SOURCE/misc",
+      "tracked_in_git": false
+    },
+    {
+      "name": "Panasonic post-footage pickup clips",
+      "archive_identifier": "rattle-postfootage-panasonic",
+      "archive_url": "https://archive.org/details/rattle-postfootage-panasonic",
+      "local_target": "00-SOURCE/postFootage",
+      "tracked_in_git": false,
+      "manifest": "docs/metadata/external-media/postfootage-panasonic-manifest.json",
+      "notes": "Shareable Panasonic-origin MOV files referenced by project/timelines/1801-final-final-tweaks.drt. Licensed stock footage in 00-SOURCE/postFootage is excluded."
+    }
+  ],
+  "license_restricted_categories": [
+    "PremiumBeat music files, stems, loops, short edits, ZIPs, previews, and license PDFs",
+    "Mixkit, Envato, Pexels, or other stock footage",
+    "Freesound or other third-party sound effects without a checked license and attribution manifest",
+    "Generated or purchased AI media unless redistribution through this repository is allowed"
+  ]
+}

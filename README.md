@@ -67,6 +67,16 @@ ia download rattle-00-source-misc --destdir "path/to/miscstorage"
 ```
 Or download manually from: [https://archive.org/details/rattle-00-source-misc](https://archive.org/details/rattle-00-source-misc)
 
+Post-footage Panasonic pickup clips
+```bash
+mkdir -p tmp/media
+ia download rattle-postfootage-panasonic --destdir tmp/media --glob "00-SOURCE/postFootage/*" --source original
+rsync -a tmp/media/rattle-postfootage-panasonic/00-SOURCE/postFootage/ 00-SOURCE/postFootage/
+```
+Or download manually from: [https://archive.org/details/rattle-postfootage-panasonic](https://archive.org/details/rattle-postfootage-panasonic)
+
+This package contains the Panasonic-origin `00-SOURCE/postFootage` MOV files used by `1801-final-final-tweaks.drt`. It intentionally excludes licensed stock footage, music, and third-party sound effects. See [docs/metadata/external-media/postfootage-panasonic-manifest.json](docs/metadata/external-media/postfootage-panasonic-manifest.json).
+
 ## Requirements
 
 - Python 3.10+

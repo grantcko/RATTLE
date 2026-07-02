@@ -1,0 +1,80 @@
+{
+  "version": 1,
+  "updated": "2026-07-02",
+  "archive_identifier": "rattle-postfootage-panasonic",
+  "archive_url": "https://archive.org/details/rattle-postfootage-panasonic",
+  "purpose": "Internet Archive manifest for Panasonic-origin post-footage pickup MOVs needed by the current RATTLE 1801 timeline.",
+  "derived_from": {
+    "timeline_export": "project/timelines/1801-final-final-tweaks.drt",
+    "checked_media_path_field": "MediaFilePath",
+    "reason": "These MOVs were referenced by the timeline but were not covered by the existing public footage/audio/misc archive buckets."
+  },
+  "download": {
+    "command": "mkdir -p tmp/media && ia download rattle-postfootage-panasonic --destdir tmp/media --glob \"00-SOURCE/postFootage/*\" --source original && rsync -a tmp/media/rattle-postfootage-panasonic/00-SOURCE/postFootage/ 00-SOURCE/postFootage/",
+    "manual_url": "https://archive.org/details/rattle-postfootage-panasonic",
+    "source_filter_note": "Use Internet Archive originals only. Archive.org may generate playback derivatives that are not repository source media."
+  },
+  "files": [
+    {
+      "path": "00-SOURCE/postFootage/P_A_0179.MOV",
+      "archive_download_url": "https://archive.org/download/rattle-postfootage-panasonic/00-SOURCE/postFootage/P_A_0179.MOV",
+      "size_bytes": 347547728,
+      "sha256": "d52930a3dd8d96c26de4e537c39d48b6b0b8d2988371735f3aa559787d9f81c2",
+      "codec": "hevc",
+      "width": 5952,
+      "height": 3968,
+      "frame_rate": "24000/1001",
+      "duration_seconds": 14.014
+    },
+    {
+      "path": "00-SOURCE/postFootage/P_A_0183.MOV",
+      "archive_download_url": "https://archive.org/download/rattle-postfootage-panasonic/00-SOURCE/postFootage/P_A_0183.MOV",
+      "size_bytes": 341717797,
+      "sha256": "27dfc560eb6077cf12dc9ff92f9cba71749867584ed6ca3764e13d1c0e41737d",
+      "codec": "hevc",
+      "width": 5952,
+      "height": 3968,
+      "frame_rate": "24000/1001",
+      "duration_seconds": 14.014
+    },
+    {
+      "path": "00-SOURCE/postFootage/P_A_0186.MOV",
+      "archive_download_url": "https://archive.org/download/rattle-postfootage-panasonic/00-SOURCE/postFootage/P_A_0186.MOV",
+      "size_bytes": 342637805,
+      "sha256": "d886a40119bf76a5c08e439c48b581177e6764fac8bd6d4248605bf9fab3c603",
+      "codec": "hevc",
+      "width": 5952,
+      "height": 3968,
+      "frame_rate": "24000/1001",
+      "duration_seconds": 14.014
+    },
+    {
+      "path": "00-SOURCE/postFootage/P0072720.MOV",
+      "archive_download_url": "https://archive.org/download/rattle-postfootage-panasonic/00-SOURCE/postFootage/P0072720.MOV",
+      "size_bytes": 634976077,
+      "sha256": "17ebbebfa6b73eb4f3df6c09d0aa940a7d1270f941478a7af55b04325cec0071",
+      "codec": "h264",
+      "width": 3840,
+      "height": 2160,
+      "frame_rate": "24000/1001",
+      "duration_seconds": 33.033
+    }
+  ],
+  "excluded_referenced_media": [
+    {
+      "path": "00-SOURCE/postFootage/tall-golden-grasses-swaying-in-gentle-breeze-2025-12-17-22-04-34-utc.mp4",
+      "reason": "Stock-style post footage. Do not redistribute through this archive item without a separate license review."
+    }
+  ],
+  "excluded_related_local_media": [
+    {
+      "path": "00-SOURCE/postFootage/P_A_0184.MOV",
+      "reason": "Panasonic-origin local clip, but not referenced by the checked 1801-final-final-tweaks timeline export."
+    },
+    {
+      "path": "00-SOURCE/postFootage/P_A_0185.MOV",
+      "reason": "Panasonic-origin local clip, but not referenced by the checked 1801-final-final-tweaks timeline export."
+    }
+  ],
+  "license_boundary": "This manifest covers only shareable Panasonic-origin MOV files. It excludes licensed stock footage, licensed music, and third-party sound effects."
+}
