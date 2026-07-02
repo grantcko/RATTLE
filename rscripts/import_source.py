@@ -176,6 +176,46 @@ def collect_existing_paths_under_bin(target_bin):
     return existing
 
 
+def sequence_path_contains_file(sequence_path: str, file_path: str) -> bool:
+    """Return True if Resolve bracket sequence path represents file_path."""
+    m = re.match(r"^(.*)\[(\d+)-(\d+)\](.*)$", sequence_path)
+    if not m:
+        return False
+
+    prefix, start_s, end_s, suffix = m.groups()
+    if not file_path.startswith(prefix) or not file_path.endswith(suffix):
+        return False
+
+    number = file_path[len(prefix) : len(file_path) - len(suffix)]
+    if not number.isdigit():
+        return False
+
+    try:
+        start = int(start_s)
+        end = int(end_s)
+        value = int(number)
+    except ValueError:
+        return False
+
+    return start <= value <= end
+
+
+def source_path_already_imported(path: str, existing_paths: set[str]) -> bool:
+    """Return True when a disk path is already represented in Resolve."""
+    norm = norm_path_str(path)
+    if norm in existing_paths:
+        return True
+
+    ident = file_identity(norm)
+    for existing in existing_paths:
+        existing_ident = file_identity(existing)
+        if ident and existing_ident and ident == existing_ident:
+            return True
+        if sequence_path_contains_file(existing, norm):
+            return True
+    return False
+
+
 def collect_bin_item_rows(target_bin):
     rows = []
     root_name = folder_name(target_bin)
@@ -255,6 +295,7 @@ def validate_source_of_truth(
     import_scope_bin,
     source_folder: Path,
     source_files,
+    ignored_files,
     recursive: bool,
     include_source_root_subbin: bool,
 ):
@@ -263,11 +304,15 @@ def validate_source_of_truth(
     source_identity_set = {ident for ident in (file_identity(str(p)) for p in source_files) if ident}
     rows = collect_bin_item_rows(import_scope_bin)
     expected_rel_dirs = collect_source_relative_dirs(source_folder, recursive)
+    ignored_rel_paths = {p.relative_to(source_folder) for p in (ignored_files or [])}
     folder_rows = collect_bin_folder_rows_under_source_root(
         import_scope_bin, source_folder.name, include_source_root_subbin
     )
     stale_folders = [
-        r for r in folder_rows if Path(r["source_rel_path"]) not in expected_rel_dirs
+        r
+        for r in folder_rows
+        if Path(r["source_rel_path"]) not in expected_rel_dirs
+        and Path(r["source_rel_path"]) not in ignored_rel_paths
     ]
 
     no_path = [r for r in rows if not r["path"]]
@@ -318,8 +363,8 @@ def path_matches_source_set(path: str, source_set: set[str], source_identity_set
     if end < start:
         return False
 
-    # Guard against pathological ranges.
-    if (end - start) > 5000:
+    # Guard against pathological ranges while allowing full scanned-film rolls.
+    if (end - start) > 250000:
         return False
 
     width = max(len(start_s), len(end_s))
@@ -531,8 +576,8 @@ def preview_import_plan(
     verbose: bool,
 ):
     norm_files = [norm_path_str(str(p)) for p in files]
-    existing_path_list = [p for p in norm_files if p in existing_paths]
-    new_path_list = [p for p in norm_files if p not in existing_paths]
+    existing_path_list = [p for p in norm_files if source_path_already_imported(p, existing_paths)]
+    new_path_list = [p for p in norm_files if not source_path_already_imported(p, existing_paths)]
     already_present = len(existing_path_list)
     new_files = len(new_path_list)
     path_to_file = {norm_path_str(str(p)): p for p in files}
@@ -704,6 +749,7 @@ def main():
         import_scope_bin=import_scope_bin,
         source_folder=source_folder,
         source_files=files,
+        ignored_files=ignored_files,
         recursive=not args.non_recursive,
         include_source_root_subbin=include_source_root_subbin,
     )
@@ -764,6 +810,7 @@ def main():
                     import_scope_bin=import_scope_bin,
                     source_folder=source_folder,
                     source_files=files,
+                    ignored_files=ignored_files,
                     recursive=not args.non_recursive,
                     include_source_root_subbin=include_source_root_subbin,
                 )
@@ -780,8 +827,11 @@ def main():
                 "Re-run with --delete-resolve-items to delete them automatically."
             )
 
-    groups = collect_file_groups_from_files(source_folder, files)
     existing_paths = collect_existing_paths_under_bin(import_scope_bin)
+    new_files_to_import = [
+        p for p in files if not source_path_already_imported(str(p), existing_paths)
+    ]
+    groups = collect_file_groups_from_files(source_folder, new_files_to_import)
 
     plan = preview_import_plan(
         project_name=project_name,
