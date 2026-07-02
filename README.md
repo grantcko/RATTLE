@@ -6,7 +6,8 @@ An open source narrative horror video about man who finds himself at peace, havi
 
 ## Status
 
-Postproduction 🖥️ | [Latest Nightly Export](https://archive.org/details/1801-final-tweaks-2)
+✅ FINISHED - not maintained (please fork your own versions!)  
+[See the finished video here](https://archive.org/details/1801-final-tweaks-2)
 
 ## Quick Start
 
