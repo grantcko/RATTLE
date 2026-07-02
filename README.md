@@ -124,12 +124,12 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Credits
 
-| Role | Credit |
-| --- | --- |
-| Director/Producer | Grant Hall |
-| Cinematographer/Producer | David Narbecki |
-| The "Woman" | Jalani Blankenship |
-| The "Man" | Reza Emamiyeh |
-| Gaffer | Ben Gonzalez |
-| Makeup Artist | Kaye Narita |
-| Assistant Camera/BTS | Andrew Alter |
+| Role | Credit | Instagram |
+| --- | --- | --- |
+| Director/Producer | Grant Hall | |
+| Cinematographer/Producer | David Narbecki | [@davidnarbecki](https://www.instagram.com/davidnarbecki/) |
+| The "Woman" | Jalani Blankenship | [@jalaniblankenship](https://www.instagram.com/jalaniblankenship/) |
+| The "Man" | Reza Emamiyeh | [@rezwearzbowtiez](https://www.instagram.com/rezwearzbowtiez/) |
+| Gaffer | Ben Gonzalez | [@ben.r.g_visuals](https://www.instagram.com/ben.r.g_visuals/) |
+| Makeup Artist | Kaye Narita | [@kayemakeup](https://www.instagram.com/kayemakeup/) |
+| Assistant Camera/BTS | Andrew Alter | |
