@@ -127,7 +127,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 | Role | Credit | Instagram |
 | --- | --- | --- |
-| Director/Producer | Grant Hall | |
+| Director/Producer | Grant Hall | [@_granthall_](https://www.instagram.com/_granthall_/) |
 | Cinematographer/Producer | David Narbecki | [@davidnarbecki](https://www.instagram.com/davidnarbecki/) |
 | The "Woman" | Jalani Blankenship | [@jalaniblankenship](https://www.instagram.com/jalaniblankenship/) |
 | The "Man" | Reza Emamiyeh | [@rezwearzbowtiez](https://www.instagram.com/rezwearzbowtiez/) |
