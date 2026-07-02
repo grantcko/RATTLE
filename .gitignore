@@ -53,6 +53,8 @@ node_modules/
 exports/
 **/ignored/
 project/ProxyMedia/
+/project/RATTLE_1/Capture/
+/project/RATTLE_1/Audio Files/Renders/
 
 # Track 00-SOURCE folder structure, ignore contents
 00-SOURCE/*

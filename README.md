@@ -58,6 +58,8 @@ ia download rattle-audio --destdir "path/to/audiostorage"
 ```
 Or download manually from: [https://archive.org/details/rattle-audio](https://archive.org/details/rattle-audio)
 
+Resolve project audio captures/renders: [rattle-project-audio-captures-renders-20260702.zip](https://archive.org/download/rattle-audio/rattle-project-audio-captures-renders-20260702.zip). Unzip this from the repo root if Resolve asks for missing files under `project/RATTLE_1/Capture` or `project/RATTLE_1/Audio Files/Renders`.
+
 Miscellaneous
 ```bash
 ia download rattle-00-source-misc --destdir "path/to/miscstorage"
