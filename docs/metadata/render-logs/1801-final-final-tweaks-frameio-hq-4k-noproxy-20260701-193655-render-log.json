@@ -1,0 +1,704 @@
+{
+  "stamp": "20260701-193655",
+  "out_dir": "/Volumes/TASTY/RATTLE/exports",
+  "custom_name": "1801-final-final-tweaks-frameio-hq-4k-noproxy-20260701-193655",
+  "events": [
+    {
+      "time": "2026-07-01T19:36:55",
+      "message": "connected",
+      "project": "RATTLE_v001",
+      "timeline": "1801-final-final-tweaks",
+      "start_timecode": "01:00:00:00"
+    },
+    {
+      "time": "2026-07-01T19:36:55",
+      "message": "set_proxy_playback_mode",
+      "requested": "0",
+      "previous": "1",
+      "ok": true
+    },
+    {
+      "time": "2026-07-01T19:36:55",
+      "message": "confirm_proxy_playback_mode",
+      "value": "0"
+    },
+    {
+      "time": "2026-07-01T19:36:55",
+      "message": "set_render_mode_single_clip",
+      "ok": true
+    },
+    {
+      "time": "2026-07-01T19:36:55",
+      "message": "set_format_codec",
+      "format": "mov",
+      "codec": "H264",
+      "ok": true
+    },
+    {
+      "time": "2026-07-01T19:36:55",
+      "message": "set_render_settings",
+      "ok": true,
+      "settings": {
+        "SelectAllFrames": true,
+        "TargetDir": "/Volumes/TASTY/RATTLE/exports",
+        "CustomName": "1801-final-final-tweaks-frameio-hq-4k-noproxy-20260701-193655",
+        "UniqueFilenameStyle": 1,
+        "ExportVideo": true,
+        "ExportAudio": true,
+        "FormatWidth": 3840,
+        "FormatHeight": 2160,
+        "FrameRate": 24,
+        "PixelAspectRatio": "square",
+        "VideoQuality": 100000,
+        "AudioBitDepth": 24,
+        "AudioSampleRate": 48000,
+        "NetworkOptimization": true,
+        "TimelineStartTimecode": "01:00:00:00"
+      }
+    },
+    {
+      "time": "2026-07-01T19:36:55",
+      "message": "confirm_format_codec",
+      "value": {
+        "format": "mov",
+        "codec": "H264"
+      }
+    },
+    {
+      "time": "2026-07-01T19:36:55",
+      "message": "add_render_job",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3"
+    },
+    {
+      "time": "2026-07-01T19:36:56",
+      "message": "start_rendering",
+      "ok": true,
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3"
+    },
+    {
+      "time": "2026-07-01T19:36:56",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 0,
+        "EstimatedTimeRemainingInMs": 0
+      }
+    },
+    {
+      "time": "2026-07-01T19:37:06",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 4,
+        "EstimatedTimeRemainingInMs": 84000
+      }
+    },
+    {
+      "time": "2026-07-01T19:37:26",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 6,
+        "EstimatedTimeRemainingInMs": 221000
+      }
+    },
+    {
+      "time": "2026-07-01T19:37:36",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 7,
+        "EstimatedTimeRemainingInMs": 305000
+      }
+    },
+    {
+      "time": "2026-07-01T19:37:46",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 8,
+        "EstimatedTimeRemainingInMs": 361000
+      }
+    },
+    {
+      "time": "2026-07-01T19:37:56",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 10,
+        "EstimatedTimeRemainingInMs": 399000
+      }
+    },
+    {
+      "time": "2026-07-01T19:38:06",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 13,
+        "EstimatedTimeRemainingInMs": 356000
+      }
+    },
+    {
+      "time": "2026-07-01T19:38:16",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 16,
+        "EstimatedTimeRemainingInMs": 330000
+      }
+    },
+    {
+      "time": "2026-07-01T19:38:26",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 18,
+        "EstimatedTimeRemainingInMs": 328000
+      }
+    },
+    {
+      "time": "2026-07-01T19:38:36",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 21,
+        "EstimatedTimeRemainingInMs": 321000
+      }
+    },
+    {
+      "time": "2026-07-01T19:38:46",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 25,
+        "EstimatedTimeRemainingInMs": 288000
+      }
+    },
+    {
+      "time": "2026-07-01T19:38:56",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 27,
+        "EstimatedTimeRemainingInMs": 291000
+      }
+    },
+    {
+      "time": "2026-07-01T19:39:06",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 28,
+        "EstimatedTimeRemainingInMs": 294000
+      }
+    },
+    {
+      "time": "2026-07-01T19:39:16",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 31,
+        "EstimatedTimeRemainingInMs": 275000
+      }
+    },
+    {
+      "time": "2026-07-01T19:39:26",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 33,
+        "EstimatedTimeRemainingInMs": 273000
+      }
+    },
+    {
+      "time": "2026-07-01T19:39:36",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 35,
+        "EstimatedTimeRemainingInMs": 278000
+      }
+    },
+    {
+      "time": "2026-07-01T19:39:46",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 36,
+        "EstimatedTimeRemainingInMs": 275000
+      }
+    },
+    {
+      "time": "2026-07-01T19:39:56",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 38,
+        "EstimatedTimeRemainingInMs": 271000
+      }
+    },
+    {
+      "time": "2026-07-01T19:40:06",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 40,
+        "EstimatedTimeRemainingInMs": 266000
+      }
+    },
+    {
+      "time": "2026-07-01T19:40:16",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 42,
+        "EstimatedTimeRemainingInMs": 261000
+      }
+    },
+    {
+      "time": "2026-07-01T19:40:26",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 44,
+        "EstimatedTimeRemainingInMs": 256000
+      }
+    },
+    {
+      "time": "2026-07-01T19:40:36",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 45,
+        "EstimatedTimeRemainingInMs": 253000
+      }
+    },
+    {
+      "time": "2026-07-01T19:40:56",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 46,
+        "EstimatedTimeRemainingInMs": 256000
+      }
+    },
+    {
+      "time": "2026-07-01T19:41:16",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 47,
+        "EstimatedTimeRemainingInMs": 276000
+      }
+    },
+    {
+      "time": "2026-07-01T19:41:46",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 48,
+        "EstimatedTimeRemainingInMs": 294000
+      }
+    },
+    {
+      "time": "2026-07-01T19:42:16",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 49,
+        "EstimatedTimeRemainingInMs": 322000
+      }
+    },
+    {
+      "time": "2026-07-01T19:43:06",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 51,
+        "EstimatedTimeRemainingInMs": 342000
+      }
+    },
+    {
+      "time": "2026-07-01T19:43:16",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 53,
+        "EstimatedTimeRemainingInMs": 327000
+      }
+    },
+    {
+      "time": "2026-07-01T19:43:36",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 55,
+        "EstimatedTimeRemainingInMs": 309000
+      }
+    },
+    {
+      "time": "2026-07-01T19:43:46",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 57,
+        "EstimatedTimeRemainingInMs": 291000
+      }
+    },
+    {
+      "time": "2026-07-01T19:43:56",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 59,
+        "EstimatedTimeRemainingInMs": 273000
+      }
+    },
+    {
+      "time": "2026-07-01T19:44:06",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 61,
+        "EstimatedTimeRemainingInMs": 256000
+      }
+    },
+    {
+      "time": "2026-07-01T19:44:16",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 64,
+        "EstimatedTimeRemainingInMs": 239000
+      }
+    },
+    {
+      "time": "2026-07-01T19:44:26",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 66,
+        "EstimatedTimeRemainingInMs": 223000
+      }
+    },
+    {
+      "time": "2026-07-01T19:44:36",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 68,
+        "EstimatedTimeRemainingInMs": 207000
+      }
+    },
+    {
+      "time": "2026-07-01T19:44:46",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 70,
+        "EstimatedTimeRemainingInMs": 192000
+      }
+    },
+    {
+      "time": "2026-07-01T19:44:56",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 72,
+        "EstimatedTimeRemainingInMs": 177000
+      }
+    },
+    {
+      "time": "2026-07-01T19:45:06",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 74,
+        "EstimatedTimeRemainingInMs": 162000
+      }
+    },
+    {
+      "time": "2026-07-01T19:45:16",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 76,
+        "EstimatedTimeRemainingInMs": 148000
+      }
+    },
+    {
+      "time": "2026-07-01T19:45:26",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 78,
+        "EstimatedTimeRemainingInMs": 135000
+      }
+    },
+    {
+      "time": "2026-07-01T19:45:36",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 80,
+        "EstimatedTimeRemainingInMs": 121000
+      }
+    },
+    {
+      "time": "2026-07-01T19:45:46",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 82,
+        "EstimatedTimeRemainingInMs": 107000
+      }
+    },
+    {
+      "time": "2026-07-01T19:45:56",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 84,
+        "EstimatedTimeRemainingInMs": 96000
+      }
+    },
+    {
+      "time": "2026-07-01T19:46:06",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 86,
+        "EstimatedTimeRemainingInMs": 83000
+      }
+    },
+    {
+      "time": "2026-07-01T19:46:16",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 88,
+        "EstimatedTimeRemainingInMs": 70000
+      }
+    },
+    {
+      "time": "2026-07-01T19:46:26",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 90,
+        "EstimatedTimeRemainingInMs": 58000
+      }
+    },
+    {
+      "time": "2026-07-01T19:46:46",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 92,
+        "EstimatedTimeRemainingInMs": 45000
+      }
+    },
+    {
+      "time": "2026-07-01T19:46:56",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 94,
+        "EstimatedTimeRemainingInMs": 33000
+      }
+    },
+    {
+      "time": "2026-07-01T19:47:06",
+      "message": "render_progress",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 99,
+        "EstimatedTimeRemainingInMs": 3000
+      }
+    },
+    {
+      "time": "2026-07-01T19:47:16",
+      "message": "render_finished",
+      "job_id": "d717f43d-f412-4a40-bdfa-f524e857aaf3",
+      "status": {
+        "JobStatus": "Complete",
+        "CompletionPercentage": 100,
+        "TimeTakenToRenderInMs": 608498
+      }
+    },
+    {
+      "time": "2026-07-01T19:47:16",
+      "message": "output_candidates",
+      "files": [
+        {
+          "path": "/Volumes/TASTY/RATTLE/exports/1801-final-final-tweaks-frameio-hq-4k-noproxy-20260701-193655.mov",
+          "size": 2344633072
+        }
+      ]
+    },
+    {
+      "time": "2026-07-01T19:47:16",
+      "message": "output_selected",
+      "output_path": "/Volumes/TASTY/RATTLE/exports/1801-final-final-tweaks-frameio-hq-4k-noproxy-20260701-193655.mov",
+      "size_bytes": 2344633072
+    },
+    {
+      "time": "2026-07-01T19:47:16",
+      "message": "restore_proxy_playback_mode",
+      "requested": "1",
+      "ok": true
+    }
+  ],
+  "project_name": "RATTLE_v001",
+  "timeline_name": "1801-final-final-tweaks",
+  "timeline_start_timecode": "01:00:00:00",
+  "original_perfProxyMediaMode": "1",
+  "original_render_mode": 1,
+  "original_format_codec": {
+    "format": "unknown",
+    "codec": ""
+  },
+  "audio_track_states_before": [
+    {
+      "index": 1,
+      "enabled": true
+    },
+    {
+      "index": 2,
+      "enabled": true
+    },
+    {
+      "index": 3,
+      "enabled": true
+    },
+    {
+      "index": 4,
+      "enabled": true
+    },
+    {
+      "index": 5,
+      "enabled": true
+    },
+    {
+      "index": 6,
+      "enabled": true
+    },
+    {
+      "index": 7,
+      "enabled": true
+    },
+    {
+      "index": 8,
+      "enabled": true
+    },
+    {
+      "index": 9,
+      "enabled": true
+    },
+    {
+      "index": 10,
+      "enabled": true
+    },
+    {
+      "index": 11,
+      "enabled": true
+    },
+    {
+      "index": 12,
+      "enabled": true
+    },
+    {
+      "index": 13,
+      "enabled": true
+    },
+    {
+      "index": 14,
+      "enabled": true
+    },
+    {
+      "index": 15,
+      "enabled": true
+    },
+    {
+      "index": 16,
+      "enabled": true
+    },
+    {
+      "index": 17,
+      "enabled": true
+    },
+    {
+      "index": 18,
+      "enabled": true
+    },
+    {
+      "index": 19,
+      "enabled": true
+    },
+    {
+      "index": 20,
+      "enabled": true
+    },
+    {
+      "index": 21,
+      "enabled": true
+    }
+  ],
+  "files": [
+    {
+      "path": "/Volumes/TASTY/RATTLE/exports/1801-final-final-tweaks-frameio-hq-4k-noproxy-20260701-193655.mov",
+      "size": 2344633072
+    }
+  ],
+  "output_path": "/Volumes/TASTY/RATTLE/exports/1801-final-final-tweaks-frameio-hq-4k-noproxy-20260701-193655.mov",
+  "output_size_bytes": 2344633072
+}

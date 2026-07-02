@@ -1,0 +1,719 @@
+{
+  "custom_name": "1801-final-tweaks_2",
+  "out_dir": "/Volumes/TASTY/RATTLE/exports",
+  "events": [
+    {
+      "time": "2026-07-01T22:31:23",
+      "message": "connected",
+      "project": "RATTLE_v001",
+      "timeline": "1801-final-final-tweaks",
+      "start_timecode": "01:00:00:00"
+    },
+    {
+      "time": "2026-07-01T22:31:23",
+      "message": "set_proxy_playback_mode",
+      "requested": "0",
+      "previous": "1",
+      "ok": true
+    },
+    {
+      "time": "2026-07-01T22:31:23",
+      "message": "confirm_proxy_playback_mode",
+      "value": "0"
+    },
+    {
+      "time": "2026-07-01T22:31:23",
+      "message": "set_render_mode_single_clip",
+      "ok": true
+    },
+    {
+      "time": "2026-07-01T22:31:23",
+      "message": "set_format_codec",
+      "format": "mov",
+      "codec": "H264",
+      "ok": true
+    },
+    {
+      "time": "2026-07-01T22:31:24",
+      "message": "set_render_settings",
+      "ok": true,
+      "settings": {
+        "SelectAllFrames": true,
+        "TargetDir": "/Volumes/TASTY/RATTLE/exports",
+        "CustomName": "1801-final-tweaks_2",
+        "UniqueFilenameStyle": 1,
+        "ExportVideo": true,
+        "ExportAudio": true,
+        "FormatWidth": 3840,
+        "FormatHeight": 2160,
+        "FrameRate": 24,
+        "PixelAspectRatio": "square",
+        "VideoQuality": 100000,
+        "AudioBitDepth": 24,
+        "AudioSampleRate": 48000,
+        "NetworkOptimization": true,
+        "TimelineStartTimecode": "01:00:00:00"
+      }
+    },
+    {
+      "time": "2026-07-01T22:31:24",
+      "message": "confirm_format_codec",
+      "value": {
+        "format": "mov",
+        "codec": "H264"
+      }
+    },
+    {
+      "time": "2026-07-01T22:31:24",
+      "message": "add_render_job",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b"
+    },
+    {
+      "time": "2026-07-01T22:31:24",
+      "message": "start_rendering",
+      "ok": true,
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b"
+    },
+    {
+      "time": "2026-07-01T22:31:24",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 0,
+        "EstimatedTimeRemainingInMs": 0
+      },
+      "output_size_bytes": 0
+    },
+    {
+      "time": "2026-07-01T22:31:44",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 5,
+        "EstimatedTimeRemainingInMs": 108000
+      },
+      "output_size_bytes": 65665697
+    },
+    {
+      "time": "2026-07-01T22:31:54",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 6,
+        "EstimatedTimeRemainingInMs": 221000
+      },
+      "output_size_bytes": 160170656
+    },
+    {
+      "time": "2026-07-01T22:32:04",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 8,
+        "EstimatedTimeRemainingInMs": 285000
+      },
+      "output_size_bytes": 218848176
+    },
+    {
+      "time": "2026-07-01T22:32:14",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 10,
+        "EstimatedTimeRemainingInMs": 317000
+      },
+      "output_size_bytes": 313927083
+    },
+    {
+      "time": "2026-07-01T22:32:24",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 14,
+        "EstimatedTimeRemainingInMs": 275000
+      },
+      "output_size_bytes": 401913239
+    },
+    {
+      "time": "2026-07-01T22:32:34",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 17,
+        "EstimatedTimeRemainingInMs": 266000
+      },
+      "output_size_bytes": 440168899
+    },
+    {
+      "time": "2026-07-01T22:32:44",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 19,
+        "EstimatedTimeRemainingInMs": 283000
+      },
+      "output_size_bytes": 488603904
+    },
+    {
+      "time": "2026-07-01T22:32:54",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 22,
+        "EstimatedTimeRemainingInMs": 275000
+      },
+      "output_size_bytes": 577800971
+    },
+    {
+      "time": "2026-07-01T22:33:04",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 25,
+        "EstimatedTimeRemainingInMs": 260000
+      },
+      "output_size_bytes": 622663013
+    },
+    {
+      "time": "2026-07-01T22:33:14",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 26,
+        "EstimatedTimeRemainingInMs": 268000
+      },
+      "output_size_bytes": 660180755
+    },
+    {
+      "time": "2026-07-01T22:33:24",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 28,
+        "EstimatedTimeRemainingInMs": 274000
+      },
+      "output_size_bytes": 702514187
+    },
+    {
+      "time": "2026-07-01T22:33:34",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 31,
+        "EstimatedTimeRemainingInMs": 264000
+      },
+      "output_size_bytes": 783723878
+    },
+    {
+      "time": "2026-07-01T22:33:44",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 33,
+        "EstimatedTimeRemainingInMs": 257000
+      },
+      "output_size_bytes": 804483310
+    },
+    {
+      "time": "2026-07-01T22:34:04",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 35,
+        "EstimatedTimeRemainingInMs": 275000
+      },
+      "output_size_bytes": 858634422
+    },
+    {
+      "time": "2026-07-01T22:34:14",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 37,
+        "EstimatedTimeRemainingInMs": 273000
+      },
+      "output_size_bytes": 891770660
+    },
+    {
+      "time": "2026-07-01T22:34:24",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 38,
+        "EstimatedTimeRemainingInMs": 276000
+      },
+      "output_size_bytes": 922948326
+    },
+    {
+      "time": "2026-07-01T22:34:34",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 39,
+        "EstimatedTimeRemainingInMs": 276000
+      },
+      "output_size_bytes": 951608419
+    },
+    {
+      "time": "2026-07-01T22:34:44",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 41,
+        "EstimatedTimeRemainingInMs": 272000
+      },
+      "output_size_bytes": 991821850
+    },
+    {
+      "time": "2026-07-01T22:34:54",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 43,
+        "EstimatedTimeRemainingInMs": 268000
+      },
+      "output_size_bytes": 1031123989
+    },
+    {
+      "time": "2026-07-01T22:35:04",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 44,
+        "EstimatedTimeRemainingInMs": 265000
+      },
+      "output_size_bytes": 1064255169
+    },
+    {
+      "time": "2026-07-01T22:35:14",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 46,
+        "EstimatedTimeRemainingInMs": 262000
+      },
+      "output_size_bytes": 1102689188
+    },
+    {
+      "time": "2026-07-01T22:35:54",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 47,
+        "EstimatedTimeRemainingInMs": 290000
+      },
+      "output_size_bytes": 1125659475
+    },
+    {
+      "time": "2026-07-01T22:36:24",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 48,
+        "EstimatedTimeRemainingInMs": 307000
+      },
+      "output_size_bytes": 1161886231
+    },
+    {
+      "time": "2026-07-01T22:36:54",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 49,
+        "EstimatedTimeRemainingInMs": 333000
+      },
+      "output_size_bytes": 1173978598
+    },
+    {
+      "time": "2026-07-01T22:37:34",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 51,
+        "EstimatedTimeRemainingInMs": 348000
+      },
+      "output_size_bytes": 1216407131
+    },
+    {
+      "time": "2026-07-01T22:37:44",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 53,
+        "EstimatedTimeRemainingInMs": 328000
+      },
+      "output_size_bytes": 1257817964
+    },
+    {
+      "time": "2026-07-01T22:37:54",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 55,
+        "EstimatedTimeRemainingInMs": 302000
+      },
+      "output_size_bytes": 1334100784
+    },
+    {
+      "time": "2026-07-01T22:38:04",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 58,
+        "EstimatedTimeRemainingInMs": 277000
+      },
+      "output_size_bytes": 1400487349
+    },
+    {
+      "time": "2026-07-01T22:38:14",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 61,
+        "EstimatedTimeRemainingInMs": 253000
+      },
+      "output_size_bytes": 1475395490
+    },
+    {
+      "time": "2026-07-01T22:38:24",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 64,
+        "EstimatedTimeRemainingInMs": 230000
+      },
+      "output_size_bytes": 1552945874
+    },
+    {
+      "time": "2026-07-01T22:38:44",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 67,
+        "EstimatedTimeRemainingInMs": 207000
+      },
+      "output_size_bytes": 1657440500
+    },
+    {
+      "time": "2026-07-01T22:38:54",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 69,
+        "EstimatedTimeRemainingInMs": 189000
+      },
+      "output_size_bytes": 1717304228
+    },
+    {
+      "time": "2026-07-01T22:39:04",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 72,
+        "EstimatedTimeRemainingInMs": 172000
+      },
+      "output_size_bytes": 1771222539
+    },
+    {
+      "time": "2026-07-01T22:39:14",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 74,
+        "EstimatedTimeRemainingInMs": 157000
+      },
+      "output_size_bytes": 1828154168
+    },
+    {
+      "time": "2026-07-01T22:39:24",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 76,
+        "EstimatedTimeRemainingInMs": 140000
+      },
+      "output_size_bytes": 1880988040
+    },
+    {
+      "time": "2026-07-01T22:39:34",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 78,
+        "EstimatedTimeRemainingInMs": 127000
+      },
+      "output_size_bytes": 1926126735
+    },
+    {
+      "time": "2026-07-01T22:39:44",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 80,
+        "EstimatedTimeRemainingInMs": 117000
+      },
+      "output_size_bytes": 1994995935
+    },
+    {
+      "time": "2026-07-01T22:39:54",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 83,
+        "EstimatedTimeRemainingInMs": 101000
+      },
+      "output_size_bytes": 2027548594
+    },
+    {
+      "time": "2026-07-01T22:40:04",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 84,
+        "EstimatedTimeRemainingInMs": 91000
+      },
+      "output_size_bytes": 2073848783
+    },
+    {
+      "time": "2026-07-01T22:40:14",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 87,
+        "EstimatedTimeRemainingInMs": 77000
+      },
+      "output_size_bytes": 2123838322
+    },
+    {
+      "time": "2026-07-01T22:40:24",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 89,
+        "EstimatedTimeRemainingInMs": 62000
+      },
+      "output_size_bytes": 2178776234
+    },
+    {
+      "time": "2026-07-01T22:40:34",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 92,
+        "EstimatedTimeRemainingInMs": 47000
+      },
+      "output_size_bytes": 2235851795
+    },
+    {
+      "time": "2026-07-01T22:40:44",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 94,
+        "EstimatedTimeRemainingInMs": 32000
+      },
+      "output_size_bytes": 2287960010
+    },
+    {
+      "time": "2026-07-01T22:40:54",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 96,
+        "EstimatedTimeRemainingInMs": 18000
+      },
+      "output_size_bytes": 2336793356
+    },
+    {
+      "time": "2026-07-01T22:41:04",
+      "message": "render_progress",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Rendering",
+        "CompletionPercentage": 99,
+        "EstimatedTimeRemainingInMs": 4000
+      },
+      "output_size_bytes": 2347070997
+    },
+    {
+      "time": "2026-07-01T22:41:24",
+      "message": "render_finished",
+      "job_id": "e934a5a2-918e-41c6-9b9b-674217074a6b",
+      "status": {
+        "JobStatus": "Complete",
+        "CompletionPercentage": 100,
+        "TimeTakenToRenderInMs": 588000
+      }
+    },
+    {
+      "time": "2026-07-01T22:41:24",
+      "message": "output_candidates",
+      "files": [
+        {
+          "path": "/Volumes/TASTY/RATTLE/exports/1801-final-tweaks_2.mov",
+          "size": 2356455862
+        }
+      ]
+    },
+    {
+      "time": "2026-07-01T22:41:24",
+      "message": "output_selected",
+      "output_path": "/Volumes/TASTY/RATTLE/exports/1801-final-tweaks_2.mov",
+      "size_bytes": 2356455862
+    },
+    {
+      "time": "2026-07-01T22:41:24",
+      "message": "restore_proxy_playback_mode",
+      "requested": "1",
+      "ok": true
+    }
+  ],
+  "project_name": "RATTLE_v001",
+  "timeline_name": "1801-final-final-tweaks",
+  "timeline_start_timecode": "01:00:00:00",
+  "original_perfProxyMediaMode": "1",
+  "original_render_mode": 1,
+  "original_format_codec": {
+    "format": "mov",
+    "codec": "H264"
+  },
+  "audio_track_states_before": [
+    {
+      "index": 1,
+      "enabled": true
+    },
+    {
+      "index": 2,
+      "enabled": true
+    },
+    {
+      "index": 3,
+      "enabled": true
+    },
+    {
+      "index": 4,
+      "enabled": true
+    },
+    {
+      "index": 5,
+      "enabled": true
+    },
+    {
+      "index": 6,
+      "enabled": true
+    },
+    {
+      "index": 7,
+      "enabled": true
+    },
+    {
+      "index": 8,
+      "enabled": true
+    },
+    {
+      "index": 9,
+      "enabled": true
+    },
+    {
+      "index": 10,
+      "enabled": true
+    },
+    {
+      "index": 11,
+      "enabled": true
+    },
+    {
+      "index": 12,
+      "enabled": true
+    },
+    {
+      "index": 13,
+      "enabled": true
+    },
+    {
+      "index": 14,
+      "enabled": true
+    },
+    {
+      "index": 15,
+      "enabled": true
+    },
+    {
+      "index": 16,
+      "enabled": true
+    },
+    {
+      "index": 17,
+      "enabled": true
+    },
+    {
+      "index": 18,
+      "enabled": true
+    },
+    {
+      "index": 19,
+      "enabled": true
+    },
+    {
+      "index": 20,
+      "enabled": true
+    },
+    {
+      "index": 21,
+      "enabled": true
+    }
+  ],
+  "files": [
+    {
+      "path": "/Volumes/TASTY/RATTLE/exports/1801-final-tweaks_2.mov",
+      "size": 2356455862
+    }
+  ],
+  "output_path": "/Volumes/TASTY/RATTLE/exports/1801-final-tweaks_2.mov",
+  "output_size_bytes": 2356455862
+}

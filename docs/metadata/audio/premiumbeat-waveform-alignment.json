@@ -1,0 +1,442 @@
+{
+  "sample_rate": 8000,
+  "items": [
+    {
+      "track": 9,
+      "name": "356_stem1_dark-altar-ritual_0148_preview (1).mp3",
+      "old_path": "/Volumes/TASTY/RATTLE/00-SOURCE/postSound/356_stem1_dark-altar-ritual_0148_preview (1).mp3",
+      "timeline_tc": "01:03:05:23-01:03:10:03",
+      "timeline_frames": [
+        90863,
+        90963
+      ],
+      "old_source_frames": [
+        1759,
+        1859
+      ],
+      "old_source_start_s": 73.29166666666667,
+      "duration_s": 4.166666666666667,
+      "matches": [
+        {
+          "candidate": "clean_stem1",
+          "path": "/Volumes/TASTY/RATTLE/00-SOURCE/postSound/PremiumBeat/356_stem1_dark-altar-ritual_0148.wav",
+          "waveform": {
+            "score": 0.9509540658323712,
+            "clean_start_s": 69.391625,
+            "lag_vs_old_s": -4.000041666666661
+          },
+          "envelope": {
+            "score": 0.9195233971634426,
+            "clean_start_s": 65.391625,
+            "lag_vs_old_s": -8.000041666666661
+          }
+        },
+        {
+          "candidate": "clean_full_mix_from_stems",
+          "path": "/Volumes/TASTY/RATTLE/00-SOURCE/postSound/PremiumBeat/356_full_dark-altar-ritual_clean_from_stems.wav",
+          "waveform": {
+            "score": 0.041823756218173504,
+            "clean_start_s": 65.888125,
+            "lag_vs_old_s": -7.5035416666666634
+          },
+          "envelope": {
+            "score": 0.6033084391607759,
+            "clean_start_s": 67.921875,
+            "lag_vs_old_s": -5.469791666666666
+          }
+        }
+      ]
+    },
+    {
+      "track": 19,
+      "name": "356_stem1_dark-altar-ritual_0148_preview (1).mp3",
+      "old_path": "/Volumes/TASTY/RATTLE/00-SOURCE/postSound/356_stem1_dark-altar-ritual_0148_preview (1).mp3",
+      "timeline_tc": "01:01:00:19-01:01:16:10",
+      "timeline_frames": [
+        87859,
+        88234
+      ],
+      "old_source_frames": [
+        1505,
+        1880
+      ],
+      "old_source_start_s": 62.708333333333336,
+      "duration_s": 15.625,
+      "matches": [
+        {
+          "candidate": "clean_stem1",
+          "path": "/Volumes/TASTY/RATTLE/00-SOURCE/postSound/PremiumBeat/356_stem1_dark-altar-ritual_0148.wav",
+          "waveform": {
+            "score": 0.9869140539780171,
+            "clean_start_s": 62.808375,
+            "lag_vs_old_s": 4.166666666094443e-05
+          },
+          "envelope": {
+            "score": 0.9783970951816023,
+            "clean_start_s": 62.808375,
+            "lag_vs_old_s": 4.166666666094443e-05
+          }
+        },
+        {
+          "candidate": "clean_full_mix_from_stems",
+          "path": "/Volumes/TASTY/RATTLE/00-SOURCE/postSound/PremiumBeat/356_full_dark-altar-ritual_clean_from_stems.wav",
+          "waveform": {
+            "score": 0.028177745509863242,
+            "clean_start_s": 66.808375,
+            "lag_vs_old_s": 4.000041666666661
+          },
+          "envelope": {
+            "score": 0.43731259866814876,
+            "clean_start_s": 63.34225,
+            "lag_vs_old_s": 0.5339166666666628
+          }
+        }
+      ]
+    },
+    {
+      "track": 19,
+      "name": "356_full_dark-altar-ritual_0152_preview.mp3",
+      "old_path": "/Volumes/TASTY/RATTLE/00-SOURCE/postSound/356_full_dark-altar-ritual_0152_preview.mp3",
+      "timeline_tc": "01:01:29:08-01:01:34:16",
+      "timeline_frames": [
+        88544,
+        88672
+      ],
+      "old_source_frames": [
+        912,
+        1040
+      ],
+      "old_source_start_s": 38.0,
+      "duration_s": 5.333333333333333,
+      "matches": [
+        {
+          "candidate": "clean_short3",
+          "path": "/Volumes/TASTY/RATTLE/00-SOURCE/postSound/PremiumBeat/356_short3_dark-altar-ritual_0061.wav",
+          "waveform": {
+            "score": 0.9965014213165341,
+            "clean_start_s": 39.1,
+            "lag_vs_old_s": 1.0
+          },
+          "envelope": {
+            "score": 0.9886775108620282,
+            "clean_start_s": 39.100125,
+            "lag_vs_old_s": 1.000124999999997
+          }
+        },
+        {
+          "candidate": "clean_full_mix_from_stems",
+          "path": "/Volumes/TASTY/RATTLE/00-SOURCE/postSound/PremiumBeat/356_full_dark-altar-ritual_clean_from_stems.wav",
+          "waveform": {
+            "score": 0.9897245654511769,
+            "clean_start_s": 38.412875,
+            "lag_vs_old_s": 0.31287499999999824
+          },
+          "envelope": {
+            "score": 0.9805837998980395,
+            "clean_start_s": 38.413,
+            "lag_vs_old_s": 0.3129999999999953
+          }
+        },
+        {
+          "candidate": "clean_stem1",
+          "path": "/Volumes/TASTY/RATTLE/00-SOURCE/postSound/PremiumBeat/356_stem1_dark-altar-ritual_0148.wav",
+          "waveform": {
+            "score": 0.21438466939726422,
+            "clean_start_s": 38.412875,
+            "lag_vs_old_s": 0.31287499999999824
+          },
+          "envelope": {
+            "score": 0.3015139403415284,
+            "clean_start_s": 44.38625,
+            "lag_vs_old_s": 6.2862499999999955
+          }
+        }
+      ]
+    },
+    {
+      "track": 19,
+      "name": "356_full_dark-altar-ritual_0152_preview.mp3",
+      "old_path": "/Volumes/TASTY/RATTLE/00-SOURCE/postSound/356_full_dark-altar-ritual_0152_preview.mp3",
+      "timeline_tc": "01:01:39:14-01:01:43:17",
+      "timeline_frames": [
+        88790,
+        88889
+      ],
+      "old_source_frames": [
+        1102,
+        1201
+      ],
+      "old_source_start_s": 45.916666666666664,
+      "duration_s": 4.125,
+      "matches": [
+        {
+          "candidate": "clean_full_mix_from_stems",
+          "path": "/Volumes/TASTY/RATTLE/00-SOURCE/postSound/PremiumBeat/356_full_dark-altar-ritual_clean_from_stems.wav",
+          "waveform": {
+            "score": 0.9446512964693522,
+            "clean_start_s": 46.3295,
+            "lag_vs_old_s": 0.3128333333333373
+          },
+          "envelope": {
+            "score": 0.9852816713812002,
+            "clean_start_s": 46.32925,
+            "lag_vs_old_s": 0.3125833333333361
+          }
+        },
+        {
+          "candidate": "clean_short3",
+          "path": "/Volumes/TASTY/RATTLE/00-SOURCE/postSound/PremiumBeat/356_short3_dark-altar-ritual_0061.wav",
+          "waveform": {
+            "score": 0.36885894049141515,
+            "clean_start_s": 47.00075,
+            "lag_vs_old_s": 0.9840833333333308
+          },
+          "envelope": {
+            "score": 0.8967847175806509,
+            "clean_start_s": 47.012125,
+            "lag_vs_old_s": 0.9954583333333318
+          }
+        },
+        {
+          "candidate": "clean_stem1",
+          "path": "/Volumes/TASTY/RATTLE/00-SOURCE/postSound/PremiumBeat/356_stem1_dark-altar-ritual_0148.wav",
+          "waveform": {
+            "score": 0.2862285152012642,
+            "clean_start_s": 38.3295,
+            "lag_vs_old_s": -7.687166666666663
+          },
+          "envelope": {
+            "score": 0.6228086389951758,
+            "clean_start_s": 38.315375,
+            "lag_vs_old_s": -7.701291666666663
+          }
+        }
+      ]
+    },
+    {
+      "track": 20,
+      "name": "356_full_dark-altar-ritual_0152_preview.mp3",
+      "old_path": "/Volumes/TASTY/RATTLE/00-SOURCE/postSound/356_full_dark-altar-ritual_0152_preview.mp3",
+      "timeline_tc": "01:01:16:10-01:01:23:20",
+      "timeline_frames": [
+        88234,
+        88412
+      ],
+      "old_source_frames": [
+        217,
+        395
+      ],
+      "old_source_start_s": 9.041666666666666,
+      "duration_s": 7.416666666666667,
+      "matches": [
+        {
+          "candidate": "clean_short3",
+          "path": "/Volumes/TASTY/RATTLE/00-SOURCE/postSound/PremiumBeat/356_short3_dark-altar-ritual_0061.wav",
+          "waveform": {
+            "score": 0.9543782444579988,
+            "clean_start_s": 10.141625,
+            "lag_vs_old_s": 0.9999583333333337
+          },
+          "envelope": {
+            "score": 0.9973003941850985,
+            "clean_start_s": 10.141625,
+            "lag_vs_old_s": 0.9999583333333337
+          }
+        },
+        {
+          "candidate": "clean_full_mix_from_stems",
+          "path": "/Volumes/TASTY/RATTLE/00-SOURCE/postSound/PremiumBeat/356_full_dark-altar-ritual_clean_from_stems.wav",
+          "waveform": {
+            "score": 0.9531049264298835,
+            "clean_start_s": 9.4545,
+            "lag_vs_old_s": 0.31283333333333374
+          },
+          "envelope": {
+            "score": 0.9972711991633549,
+            "clean_start_s": 9.4545,
+            "lag_vs_old_s": 0.31283333333333374
+          }
+        },
+        {
+          "candidate": "clean_short2",
+          "path": "/Volumes/TASTY/RATTLE/00-SOURCE/postSound/PremiumBeat/356_short2_dark-altar-ritual_0031.wav",
+          "waveform": {
+            "score": 0.7147462583564846,
+            "clean_start_s": 10.141625,
+            "lag_vs_old_s": 0.9999583333333337
+          },
+          "envelope": {
+            "score": 0.9235868657357162,
+            "clean_start_s": 11.131625,
+            "lag_vs_old_s": 1.989958333333334
+          }
+        },
+        {
+          "candidate": "clean_stem1",
+          "path": "/Volumes/TASTY/RATTLE/00-SOURCE/postSound/PremiumBeat/356_stem1_dark-altar-ritual_0148.wav",
+          "waveform": {
+            "score": 0.22995587800245554,
+            "clean_start_s": 9.4545,
+            "lag_vs_old_s": 0.31283333333333374
+          },
+          "envelope": {
+            "score": 0.5288204655810613,
+            "clean_start_s": 2.581875,
+            "lag_vs_old_s": -6.559791666666666
+          }
+        },
+        {
+          "candidate": "clean_short1",
+          "path": "/Volumes/TASTY/RATTLE/00-SOURCE/postSound/PremiumBeat/356_short1_dark-altar-ritual_0015.wav",
+          "waveform": {
+            "score": 0.034672974072604605,
+            "clean_start_s": 2.653375,
+            "lag_vs_old_s": -6.488291666666665
+          },
+          "envelope": {
+            "score": 0.3589785280171112,
+            "clean_start_s": 1.671625,
+            "lag_vs_old_s": -7.470041666666666
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    {
+      "track": 9,
+      "name": "356_stem1_dark-altar-ritual_0148_preview (1).mp3",
+      "timeline_tc": "01:03:05:23-01:03:10:03",
+      "old_source_frames": [
+        1759,
+        1859
+      ],
+      "best_candidate": "clean_stem1",
+      "best_path": "/Volumes/TASTY/RATTLE/00-SOURCE/postSound/PremiumBeat/356_stem1_dark-altar-ritual_0148.wav",
+      "waveform_score": 0.951,
+      "waveform_lag_s": -4.0,
+      "waveform_clean_start_s": 69.3916,
+      "envelope_score": 0.9195,
+      "envelope_lag_s": -8.0,
+      "next_best": [
+        {
+          "candidate": "clean_full_mix_from_stems",
+          "waveform_score": 0.0418,
+          "waveform_lag_s": -7.5035
+        }
+      ]
+    },
+    {
+      "track": 19,
+      "name": "356_stem1_dark-altar-ritual_0148_preview (1).mp3",
+      "timeline_tc": "01:01:00:19-01:01:16:10",
+      "old_source_frames": [
+        1505,
+        1880
+      ],
+      "best_candidate": "clean_stem1",
+      "best_path": "/Volumes/TASTY/RATTLE/00-SOURCE/postSound/PremiumBeat/356_stem1_dark-altar-ritual_0148.wav",
+      "waveform_score": 0.9869,
+      "waveform_lag_s": 0.0,
+      "waveform_clean_start_s": 62.8084,
+      "envelope_score": 0.9784,
+      "envelope_lag_s": 0.0,
+      "next_best": [
+        {
+          "candidate": "clean_full_mix_from_stems",
+          "waveform_score": 0.0282,
+          "waveform_lag_s": 4.0
+        }
+      ]
+    },
+    {
+      "track": 19,
+      "name": "356_full_dark-altar-ritual_0152_preview.mp3",
+      "timeline_tc": "01:01:29:08-01:01:34:16",
+      "old_source_frames": [
+        912,
+        1040
+      ],
+      "best_candidate": "clean_short3",
+      "best_path": "/Volumes/TASTY/RATTLE/00-SOURCE/postSound/PremiumBeat/356_short3_dark-altar-ritual_0061.wav",
+      "waveform_score": 0.9965,
+      "waveform_lag_s": 1.0,
+      "waveform_clean_start_s": 39.1,
+      "envelope_score": 0.9887,
+      "envelope_lag_s": 1.0001,
+      "next_best": [
+        {
+          "candidate": "clean_full_mix_from_stems",
+          "waveform_score": 0.9897,
+          "waveform_lag_s": 0.3129
+        },
+        {
+          "candidate": "clean_stem1",
+          "waveform_score": 0.2144,
+          "waveform_lag_s": 0.3129
+        }
+      ]
+    },
+    {
+      "track": 19,
+      "name": "356_full_dark-altar-ritual_0152_preview.mp3",
+      "timeline_tc": "01:01:39:14-01:01:43:17",
+      "old_source_frames": [
+        1102,
+        1201
+      ],
+      "best_candidate": "clean_full_mix_from_stems",
+      "best_path": "/Volumes/TASTY/RATTLE/00-SOURCE/postSound/PremiumBeat/356_full_dark-altar-ritual_clean_from_stems.wav",
+      "waveform_score": 0.9447,
+      "waveform_lag_s": 0.3128,
+      "waveform_clean_start_s": 46.3295,
+      "envelope_score": 0.9853,
+      "envelope_lag_s": 0.3126,
+      "next_best": [
+        {
+          "candidate": "clean_short3",
+          "waveform_score": 0.3689,
+          "waveform_lag_s": 0.9841
+        },
+        {
+          "candidate": "clean_stem1",
+          "waveform_score": 0.2862,
+          "waveform_lag_s": -7.6872
+        }
+      ]
+    },
+    {
+      "track": 20,
+      "name": "356_full_dark-altar-ritual_0152_preview.mp3",
+      "timeline_tc": "01:01:16:10-01:01:23:20",
+      "old_source_frames": [
+        217,
+        395
+      ],
+      "best_candidate": "clean_short3",
+      "best_path": "/Volumes/TASTY/RATTLE/00-SOURCE/postSound/PremiumBeat/356_short3_dark-altar-ritual_0061.wav",
+      "waveform_score": 0.9544,
+      "waveform_lag_s": 1.0,
+      "waveform_clean_start_s": 10.1416,
+      "envelope_score": 0.9973,
+      "envelope_lag_s": 1.0,
+      "next_best": [
+        {
+          "candidate": "clean_full_mix_from_stems",
+          "waveform_score": 0.9531,
+          "waveform_lag_s": 0.3128
+        },
+        {
+          "candidate": "clean_short2",
+          "waveform_score": 0.7147,
+          "waveform_lag_s": 1.0
+        },
+        {
+          "candidate": "clean_stem1",
+          "waveform_score": 0.23,
+          "waveform_lag_s": 0.3128
+        }
+      ]
+    }
+  ]
+}
