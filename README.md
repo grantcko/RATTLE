@@ -64,6 +64,8 @@ ia download rattle-00-source-misc --destdir "path/to/miscstorage"
 ```
 Or download manually from: [https://archive.org/details/rattle-00-source-misc](https://archive.org/details/rattle-00-source-misc)
 
+Some local postproduction assets are intentionally absent from Git and public downloads because their licenses do not allow redistribution. That is expected for a fork. Repo-safe metadata and relink notes live in [docs/external-media.md](docs/external-media.md) and [docs/assets-manifest.json](docs/assets-manifest.json).
+
 ## Requirements
 
 - Python 3.10+

@@ -1,0 +1,66 @@
+[
+  {
+    "filename": "P_A_0187.MOV",
+    "target": "00-SOURCE/postFootage/P_A_0187.MOV",
+    "size": 125005799,
+    "sha256": "81aec90404848417ea0d3bedd71c453857554c928647760934c7389eae13340d",
+    "action": "saved",
+    "source_note": "Original GigaFile URL and file_id intentionally omitted because those transfer links are transient."
+  },
+  {
+    "filename": "P_A_0187.MOV",
+    "target": "00-SOURCE/postFootage/P_A_0187.MOV",
+    "size": 125005799,
+    "sha256": "81aec90404848417ea0d3bedd71c453857554c928647760934c7389eae13340d",
+    "action": "already-present",
+    "source_note": "Original GigaFile URL and file_id intentionally omitted because those transfer links are transient."
+  },
+  {
+    "filename": "P_A_0179.MOV",
+    "target": "00-SOURCE/postFootage/P_A_0179.MOV",
+    "size": 347547728,
+    "sha256": "d52930a3dd8d96c26de4e537c39d48b6b0b8d2988371735f3aa559787d9f81c2",
+    "action": "saved",
+    "source_note": "Original GigaFile URL and file_id intentionally omitted because those transfer links are transient."
+  },
+  {
+    "filename": "P_A_0183.MOV",
+    "target": "00-SOURCE/postFootage/P_A_0183.MOV",
+    "size": 341717797,
+    "sha256": "27dfc560eb6077cf12dc9ff92f9cba71749867584ed6ca3764e13d1c0e41737d",
+    "action": "saved",
+    "source_note": "Original GigaFile URL and file_id intentionally omitted because those transfer links are transient."
+  },
+  {
+    "filename": "P_A_0184.MOV",
+    "target": "00-SOURCE/postFootage/P_A_0184.MOV",
+    "size": 161355955,
+    "sha256": "0816cc7f2b4cc67a38e1f0357543725d2fcd7512ac4b86910e748acd902af358",
+    "action": "saved",
+    "source_note": "Original GigaFile URL and file_id intentionally omitted because those transfer links are transient."
+  },
+  {
+    "filename": "P_A_0185.MOV",
+    "target": "00-SOURCE/postFootage/P_A_0185.MOV",
+    "size": 66577267,
+    "sha256": "a0f00f77715f06c489a2f9d92eb0c37742e2826bca0c9b649d53a5a2132ba3ab",
+    "action": "saved",
+    "source_note": "Original GigaFile URL and file_id intentionally omitted because those transfer links are transient."
+  },
+  {
+    "filename": "P_A_0186.MOV",
+    "target": "00-SOURCE/postFootage/P_A_0186.MOV",
+    "size": 342637805,
+    "sha256": "d886a40119bf76a5c08e439c48b581177e6764fac8bd6d4248605bf9fab3c603",
+    "action": "saved",
+    "source_note": "Original GigaFile URL and file_id intentionally omitted because those transfer links are transient."
+  },
+  {
+    "filename": "P_A_0187.MOV",
+    "target": "00-SOURCE/postFootage/P_A_0187.MOV",
+    "size": 125005799,
+    "sha256": "81aec90404848417ea0d3bedd71c453857554c928647760934c7389eae13340d",
+    "action": "already-present",
+    "source_note": "Original GigaFile URL and file_id intentionally omitted because those transfer links are transient."
+  }
+]

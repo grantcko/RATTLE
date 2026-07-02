@@ -1,0 +1,18 @@
+{
+  "colorScienceMode": "davinciYRGBColorManagedv2",
+  "isAutoColorManage": "1",
+  "separateColorSpaceAndGamma": "0",
+  "colorSpaceInput": "Rec.709 (Scene)",
+  "colorSpaceInputGamma": "",
+  "colorSpaceTimeline": "Rec.709 (Scene)",
+  "colorSpaceTimelineGamma": "",
+  "colorSpaceOutput": "Rec.709 (Scene)",
+  "colorSpaceOutputGamma": "ACEScc",
+  "timelineWorkingLuminanceMode": "SDR 100",
+  "inputDRT": "DaVinci",
+  "outputDRT": "DaVinci",
+  "hdrMasteringOn": "0",
+  "timelineFrameRate": 24.0,
+  "timelineResolutionWidth": "1920",
+  "timelineResolutionHeight": "1080"
+}

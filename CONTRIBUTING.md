@@ -30,3 +30,5 @@ Do not commit large media directly to git.
   - Resolve relink notes
 
 Recommended host for shareable large files: Archive.org.
+
+Archive.org should only be used for media this project can legally redistribute. Some local working assets are intentionally absent from Git and public downloads because their licenses do not allow redistribution. Do not add those files to Git or public archives; commit repo-safe metadata and relink/setup notes instead.
