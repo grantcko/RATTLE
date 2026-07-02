@@ -6,11 +6,11 @@ An open source narrative horror video about man who finds himself at peace, havi
 
 ## Status
 
-Postproduction 🖥️ | [Latest Nightly Export](https://archive.org/details/1400-edit-1)
+Postproduction 🖥️ | [Latest Nightly Export](https://archive.org/details/1801-final-tweaks-2)
 
 ## Quick Start
 
-1. Setup
+1. Download and prepare repo
 
 ```bash
 git clone https://github.com/grantcko/RATTLE.git
@@ -18,21 +18,29 @@ cd RATTLE
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-
-# Open latest project version (RATTLE_vNNN) automatically
-open -a "DaVinci Resolve"
-python3 rscripts/import_project.py
-
-# import timeline
-python3 rscripts/import_timeline.py path/to/drt # choose the timeline you want
 ```
-Of course, these can be opened manually, too. Everything you need is in the `project/` folder.
+
+2. Open the DaVinci Resolve project
+
+```bash
+open -a "DaVinci Resolve"
+# Opens latest project version (RATTLE_vNNN) automatically
+python3 rscripts/import_project.py
+```
+**Manually**: Open DaVinci Resolve and use "File > Import Project" to open the latest `.drp` from `project/projects`.
+
+3. Import a timeline
+
+```
+python3 rscripts/import_timeline.py project/timelines/<timeline_name>
+```
+**Manually**: In DaVinci Resolve, right-click the Timelines bin and choose "Import Timeline" to select a `.drt` file from `/project/timelines`
 
 2. Download and connect large files
 
 Full Sized Footage
 ```bash
-ia download rattle-footage --destdir "path/to/footagestorage"
+ia download rattle-footage --destdir "<path/to/your/footagestorage>"
 ```
 Or download manually from: [https://archive.org/details/rattle-footage](https://archive.org/details/rattle-footage)
 
