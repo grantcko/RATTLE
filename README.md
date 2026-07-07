@@ -142,5 +142,5 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 | The "Woman" | Jalani Blankenship | [@jalaniblankenship](https://www.instagram.com/jalaniblankenship/) |
 | The "Man" | Reza Emamiyeh | [@rezwearzbowtiez](https://www.instagram.com/rezwearzbowtiez/) |
 | Gaffer | Ben Gonzalez | [@ben.r.g_visuals](https://www.instagram.com/ben.r.g_visuals/) |
-| Makeup Artist | Kaye Narita | [@kayemakeup](https://www.instagram.com/kayemakeup/) |
+| Makeup Artist | Kaye Narita | [@kayemaykeup](https://www.instagram.com/kayemaykeup/) |
 | Assistant Camera/BTS | Andrew Alter | |
